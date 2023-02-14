@@ -21,7 +21,7 @@ const handleUserInput = {
 
 async function getWeather(location, units) {
   let apiPromise = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${handleUserInput.weatherKey}&units=${units}`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${handleUserInput.weatherKey}&units=${units}`,
     { mode: "cors" }
   );
   let apiPromiseResolved = await apiPromise.json();
