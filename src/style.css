@@ -1,0 +1,193 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.navbar,
+.options {
+  border-radius: 5px;
+  background-color: #eee;
+}
+
+body {
+  padding: 1vw;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  gap: 3vh;
+  grid-template-rows: 1fr 1fr 8fr;
+}
+
+.navbar {
+  display: grid;
+  gap: 1vw;
+  grid-template-columns: 1fr 6fr;
+}
+
+.navbar > h1 {
+  align-self: center;
+  margin-left: 1vw;
+}
+
+.searchbar {
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.5vw;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.searchbar > input {
+  height: 50%;
+  align-self: center;
+}
+
+.searchbar > img {
+  height: 40px;
+  align-self: center;
+}
+
+.searchbar > img:hover {
+  cursor: pointer;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 18fr;
+}
+
+.options > img {
+  height: 40px;
+  align-self: center;
+  justify-self: end;
+}
+
+.options > div {
+  align-self: center;
+  font-weight: bold;
+}
+
+.result {
+  display: grid;
+  gap: 1vw;
+}
+
+.info {
+  display: grid;
+  gap: 1vw;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.sunStats {
+  grid-column: 1/3;
+  padding-left: 1%;
+}
+
+.basics {
+  display: grid;
+  grid-column: 1/3;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+}
+
+.basics-info {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 3fr;
+}
+
+.basics-info > div:nth-child(1) {
+  grid-column: 1/3;
+}
+
+.basics-info > div:nth-child(1) > p:first-child {
+  font-size: 5rem;
+}
+
+.basics-info > div:nth-child(1) > p:nth-child(2) {
+  font-size: 2.5rem;
+}
+
+.basics-info > div:nth-child(2) > p:first-child {
+  font-size: 2rem;
+  margin-bottom: 2vh;
+}
+
+.basics-info > div:nth-child(2) > p:nth-child(2) {
+  font-size: 2rem;
+}
+
+.basics-info > div:nth-child(3) {
+  display: flex;
+  font-size: 3rem;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.basics > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.basics > div:nth-child(2) > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.temperature {
+  padding-left: 5%;
+  padding-top: 5%;
+}
+
+.temperature p {
+  display: flex;
+}
+
+.temperature > p:nth-child(2) {
+  font-size: 4rem;
+  margin-left: 10%;
+  margin-top: 4%;
+}
+
+.overview {
+  display: grid;
+}
+
+.overview > p {
+  font-size: 3rem;
+  align-self: center;
+  justify-self: center;
+}
+
+.sunStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+.cloudStats,
+.windStats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.gif > img {
+  border-radius: 5px;
+}
+
+.basics > div:first-child,
+.temperature,
+.overview,
+.sunStats,
+.cloudStats,
+.windStats {
+  border-radius: 5px;
+  background-color: #eee;
+}
