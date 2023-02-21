@@ -14,15 +14,22 @@ body {
   padding: 1vw;
   height: 100vh;
   width: 100vw;
-  display: grid;
-  gap: 3vh;
-  grid-template-rows: 1fr 1fr 8fr;
+}
+
+.header {
+  height: auto;
+}
+
+.header div {
+  height: 40vh;
 }
 
 .navbar {
   display: grid;
   gap: 1vw;
   grid-template-columns: 1fr 6fr;
+  height: 7vh;
+  border: 1px solid black;
 }
 
 .navbar > h1 {
@@ -55,6 +62,8 @@ body {
 .options {
   display: grid;
   grid-template-columns: 1fr 18fr;
+  height: 7vh;
+  border: 1px solid black;
 }
 
 .options > img {
@@ -198,4 +207,22 @@ body {
 .windStats {
   border-radius: 5px;
   background-color: #eee;
+}
+
+.error-card {
+  margin-top: 2vh;
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  padding: 2vw;
+}
+
+.error-card p {
+  font-size: 2rem;
+  margin-bottom: 2vh;
+}
+
+.error-card img {
+  border-radius: 5px;
 }

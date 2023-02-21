@@ -37,6 +37,7 @@ const optionsDiv = {
     temperatureOptions.appendChild(divFahrenheit);
     this.options.appendChild(temperatureOptions);
   },
+  getFavoriteOption() {},
 };
 
 function getOptions() {

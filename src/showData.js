@@ -140,4 +140,4 @@ function clean(parent) {
   }
 }
 
-export { showOnInfo, showGif };
+export { showOnInfo, showGif, clean };
