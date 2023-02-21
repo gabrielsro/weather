@@ -29,10 +29,10 @@ const optionsDiv = {
     );
     let divCelsius = document.createElement("div");
     let divFahrenheit = document.createElement("div");
-    divCelsius.appendChild(celsius);
     divCelsius.appendChild(celsiusRadio);
-    divFahrenheit.appendChild(fahrenheit);
+    divCelsius.appendChild(celsius);
     divFahrenheit.appendChild(fahrenheitRadio);
+    divFahrenheit.appendChild(fahrenheit);
     temperatureOptions.appendChild(divCelsius);
     temperatureOptions.appendChild(divFahrenheit);
     this.options.appendChild(temperatureOptions);

@@ -68,6 +68,14 @@ body {
   font-weight: bold;
 }
 
+.options > div > div {
+  display: flex;
+}
+
+.options > div div > input {
+  margin-right: 0.5vw;
+}
+
 .result {
   display: grid;
   gap: 1vw;
