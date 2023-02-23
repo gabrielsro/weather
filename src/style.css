@@ -45,10 +45,12 @@ body {
 .searchbar > input {
   height: 50%;
   align-self: center;
+  width: 30vw;
 }
 
 .searchbar > img {
-  height: 40px;
+  height: auto;
+  width: 34px;
   align-self: center;
 }
 
@@ -84,12 +86,12 @@ body {
 }
 
 .option-temperature label {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 .option-temperature input {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.1em;
+  width: 1.1em;
   margin-left: 2vw;
 }
 
@@ -176,6 +178,7 @@ body {
   grid-column: 1/2;
   grid-row: 2/4;
   display: grid;
+  gap: 2vw;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto;
 }
@@ -205,7 +208,6 @@ body {
 .flag {
   height: auto;
   max-width: 100%;
-  margin-right: 3vw;
 }
 
 .basics > div:nth-child(3) {
@@ -217,7 +219,7 @@ body {
   display: grid;
   gap: 1vw;
   grid-template-rows: repeat(auto 3);
-  padding-left: 4vw;
+  padding-right: 3vw;
 }
 
 .basics-temperature > p:first-child,
