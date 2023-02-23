@@ -9,7 +9,7 @@ export function makeReloadOption() {
   let reloadSelect = document.createElement("select");
   reloadSelect.setAttribute("id", "reload-select");
   let optionManual = document.createElement("option");
-  optionManual.innerText = "-Select refresh mode-";
+  optionManual.innerText = "--refresh mode--";
   optionManual.setAttribute("selected", true);
   let optionOneMinute = document.createElement("option");
   optionOneMinute.innerText = "Every minute";
