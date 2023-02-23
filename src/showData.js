@@ -65,9 +65,9 @@ function showOnInfo(
   if (rainVol1h || rainVol3h) {
     info.appendChild(rainCard);
   }
-  info.appendChild(sunCard);
   info.appendChild(cloudsCard);
   info.appendChild(windCard);
+  info.appendChild(sunCard);
 
   result.appendChild(info);
 }

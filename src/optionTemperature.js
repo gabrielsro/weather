@@ -32,10 +32,10 @@ export function makeTemperatureOption() {
 
   let divCelsius = document.createElement("div");
   let divFahrenheit = document.createElement("div");
-  divCelsius.appendChild(celsiusRadio);
   divCelsius.appendChild(celsius);
-  divFahrenheit.appendChild(fahrenheitRadio);
+  divCelsius.appendChild(celsiusRadio);
   divFahrenheit.appendChild(fahrenheit);
+  divFahrenheit.appendChild(fahrenheitRadio);
 
   let tempInputs = document.createElement("div");
   tempInputs.appendChild(divCelsius);
