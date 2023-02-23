@@ -26,7 +26,6 @@ body {
   gap: 1vw;
   grid-template-columns: 1fr 6fr;
   height: 7vh;
-  border: 1px solid black;
   margin-bottom: 1vh;
 }
 
@@ -61,7 +60,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 7vh;
-  border: 1px solid black;
   margin-bottom: 1vh;
 }
 
@@ -230,18 +228,44 @@ body {
   justify-content: space-around;
   align-items: center;
   font-size: 1.7rem;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.sunStats img {
+  margin: auto;
+  height: auto;
+  width: 60px;
+  margin-bottom: 1vh;
+}
+
+.sunStats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cloudStats,
 .windStats {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-left: 3vw;
 }
 
 .gif > img {
   border-radius: 5px;
+}
+
+.cloudStats img,
+.windStats img {
+  height: auto;
+  width: 60px;
+}
+
+.cloudStats p,
+.windStats p {
+  align-self: center;
+  font-size: 1.7rem;
 }
 
 .basics,

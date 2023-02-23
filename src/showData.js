@@ -59,8 +59,8 @@ function showOnInfo(
   info.classList.add("info");
 
   info.appendChild(basicsCard);
-  info.append(gifCard);
   info.appendChild(overviewCard);
+  info.append(gifCard);
   info.appendChild(sunCard);
   info.appendChild(cloudsCard);
   info.appendChild(windCard);

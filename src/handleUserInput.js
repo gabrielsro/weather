@@ -82,14 +82,20 @@ async function getWeather(location, units) {
           apiPromiseResolved.timezone * 1000 +
           offset
       )
-    ).toLocaleTimeString();
+    ).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
     let sunset = new Date(
       new Date(
         apiPromiseResolved.sys["sunset"] * 1000 +
           apiPromiseResolved.timezone * 1000 +
           offset
       )
-    ).toLocaleTimeString();
+    ).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
     let cloudiness = apiPromiseResolved.clouds["all"];
     let wind = apiPromiseResolved.wind["speed"];
     showOnInfo(
