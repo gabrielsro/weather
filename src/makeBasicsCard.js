@@ -21,11 +21,9 @@ export function makeBasicsCard(
   let basicsDate = document.createElement("p");
   basicsDate.innerText = `${date}`;
   let retrievalTime = document.createElement("p");
-  retrievalTime.innerText = `(Retrieved on ${new Date().toLocaleString()})`;
+  retrievalTime.innerText = `Last update: ${new Date().toLocaleString()}`;
   let tempTemperature = document.createElement("p");
   tempTemperature.innerText = `${temp} ${tempUnit}`;
-  let tempLabel = document.createElement("p");
-  tempLabel.innerText = "Current temperature: ";
   let tempFeelsLike = document.createElement("p");
   tempFeelsLike.innerText = `${tempFeels} ${tempUnit}`;
   let feelsLabel = document.createElement("p");
@@ -46,13 +44,16 @@ export function makeBasicsCard(
   flag.alt = `${country} flag`;
   flag.src = getFlag(country);
   flag.classList.add("flag");
-  basicsTitleCity.appendChild(flag);
+
+  let basicsDateAndTime = document.createElement("div");
+  basicsDateAndTime.appendChild(basicsTime);
+  basicsDateAndTime.appendChild(basicsDate);
+
   basics.appendChild(basicsTitleCity);
-  basicsDetails.appendChild(basicsTime);
-  basicsDetails.appendChild(basicsDate);
+  basicsDetails.appendChild(flag);
+  basicsDetails.appendChild(basicsDateAndTime);
   basicsDetails.appendChild(retrievalTime);
   basics.appendChild(basicsDetails);
-  basicsTemperature.appendChild(tempLabel);
   basicsTemperature.appendChild(tempTemperature);
   basicsTemperature.appendChild(feelsLabel);
   basicsTemperature.appendChild(tempFeelsLike);

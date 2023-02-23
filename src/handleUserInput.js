@@ -42,7 +42,10 @@ async function getWeather(location, units) {
     let dateAtCity = new Date(
       timeNow + offset + apiPromiseResolved.timezone * 1000
     );
-    let timeAtCity = dateAtCity.toLocaleTimeString();
+    let timeAtCity = dateAtCity.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
     let dateAtCitySimple = dateAtCity.toDateString();
     let temperature = apiPromiseResolved.main.temp;
     let temperatureFeels = apiPromiseResolved.main.feels_like;
