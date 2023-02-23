@@ -5,6 +5,8 @@ import { makeSunCard } from "./makeSunCard";
 import { makeCloudsCard } from "./makeCloudsCard";
 import { makeWindCard } from "./makeWindCard";
 import { makeGifCard } from "./makeGifCard";
+import { makeSnowCard } from "./makeSnowCard";
+import { makeRainCard } from "./makeRainCard";
 
 const result = document.querySelector(".result");
 
@@ -40,17 +42,13 @@ function showOnInfo(
     tempFeels,
     tempUnit
   );
-  let overviewCard = makeOverviewCard(
-    weather,
-    rainVol1h,
-    rainVol3h,
-    snowVol1h,
-    snowVol3h
-  );
+  let overviewCard = makeOverviewCard(weather);
   let sunCard = makeSunCard(sunrise, sunset);
   let cloudsCard = makeCloudsCard(cloudiness);
   let windCard = makeWindCard(wind);
   let gifCard = makeGifCard(gifSrc);
+  let snowCard = makeSnowCard(snowVol1h, snowVol3h);
+  let rainCard = makeRainCard(rainVol1h, rainVol3h);
 
   let cardsContainer = document.createElement("div");
   cardsContainer.classList.add("cards-container");
@@ -60,7 +58,13 @@ function showOnInfo(
 
   info.appendChild(basicsCard);
   info.appendChild(overviewCard);
-  info.append(gifCard);
+  info.appendChild(gifCard);
+  if (snowVol1h || snowVol3h) {
+    info.appendChild(snowCard);
+  }
+  if (rainVol1h || rainVol3h) {
+    info.appendChild(rainCard);
+  }
   info.appendChild(sunCard);
   info.appendChild(cloudsCard);
   info.appendChild(windCard);

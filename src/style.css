@@ -113,9 +113,12 @@ body {
 .overview,
 .sunStats,
 .cloudStats,
-.windStats {
+.windStats,
+.snow-card,
+.rain-card {
   border-radius: 5px;
   margin-bottom: 1vh;
+  background-color: #eee;
 }
 
 @media (min-width: 601px) {
@@ -222,6 +225,40 @@ body {
   justify-self: center;
 }
 
+.snow-card,
+.rain-card {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  padding-left: 3vw;
+}
+
+.snow-card img,
+.rain-card img {
+  height: auto;
+  width: 60px;
+}
+
+.snow-card > div > p:first-child,
+.rain-card > div > p:first-child {
+  font-size: 1.7rem;
+  margin-bottom: 0.4vh;
+}
+
+.snow-card > div > p:nth-child(2),
+.snow-card > div > p:nth-child(3),
+.rain-card > div > p:nth-child(2),
+.rain-card > div > p:nth-child(3) {
+  font-size: 1.4rem;
+  margin-left: 1vw;
+}
+
+.snow-card > div,
+.rain-card > div {
+  grid-column: 2/3;
+}
+
 .sunStats {
   display: flex;
   flex-direction: row;
@@ -266,16 +303,6 @@ body {
 .windStats p {
   align-self: center;
   font-size: 1.7rem;
-}
-
-.basics,
-.temperature,
-.overview,
-.sunStats,
-.cloudStats,
-.windStats {
-  border-radius: 5px;
-  background-color: #eee;
 }
 
 .error-card {
