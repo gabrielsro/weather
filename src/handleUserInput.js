@@ -6,6 +6,7 @@ import { clean } from "./showData";
 import { getWeatherGif } from "./gifAPI";
 import { getOptions } from "./options";
 import { getOptionsUnfavorite } from "./options";
+import { makeFavList } from "./makeFavList";
 
 const result = document.querySelector(".result");
 
@@ -24,8 +25,13 @@ const handleUserInput = {
       if (cityFromCard) {
         getWeather(cityFromCard, unitsToUse);
       } else {
-        let city = document.querySelector(".city");
-        getWeather(city.innerText, unitsToUse);
+        let info = document.querySelector(".info");
+        if (info) {
+          let city = document.getElementById("city");
+          getWeather(city.innerText, unitsToUse);
+        } else {
+          makeFavList();
+        }
       }
     }
   },

@@ -16,6 +16,7 @@ export function makeBasicsCard(
 
   let basicsCity = document.createElement("p");
   basicsCity.innerText = `${city}`;
+  basicsCity.setAttribute("id", "city");
   basicsCity.classList.add("city");
   let basicsCountry = document.createElement("p");
   basicsCountry.innerText = `${country}`;
