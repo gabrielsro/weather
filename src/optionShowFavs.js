@@ -6,7 +6,7 @@ export function makeShowFavsOption() {
   let favsOption = document.createElement("div");
   favsOption.classList.add("option-favs");
   let favsImage = new Image();
-  favsImage.alt = "Favorite icon";
+  favsImage.alt = "Show favorites icon";
   favsImage.src = FavsIcon;
   favsOption.appendChild(favsImage);
 

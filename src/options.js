@@ -3,6 +3,7 @@ import { makeReloadOption } from "./optionReload";
 import { makeFavoriteOption } from "./optionFavorite";
 import { makeUnfavoriteOption } from "./optionUnfavorite";
 import { makeShowFavsOption } from "./optionShowFavs";
+import { makeSettingsOption } from "./optionSettings";
 import { clean } from "./showData";
 
 const optionsDiv = {
@@ -27,21 +28,37 @@ const optionsDiv = {
     let showFavsOption = makeShowFavsOption();
     this.options.appendChild(showFavsOption);
   },
+  getSettingsOption() {
+    let settingsOption = makeSettingsOption();
+    this.options.appendChild(settingsOption);
+  },
 };
 
 function getOptions(all) {
   clean(optionsDiv.options);
   if (all) {
-    optionsDiv.getTemperatureOptions();
-    optionsDiv.getReloadOptions();
-    optionsDiv.getFavoriteOption();
+    let cities = JSON.parse(localStorage.getItem("cities"));
+    if (cities.length > 0) {
+      optionsDiv.getSettingsOption();
+      optionsDiv.getTemperatureOptions();
+      optionsDiv.getReloadOptions();
+      optionsDiv.getFavoriteOption();
+      optionsDiv.getShowFavsOption();
+    } else {
+      optionsDiv.getSettingsOption();
+      optionsDiv.getTemperatureOptions();
+      optionsDiv.getReloadOptions();
+      optionsDiv.getFavoriteOption();
+    }
   } else {
+    optionsDiv.getSettingsOption();
     optionsDiv.getTemperatureOptions();
   }
 }
 
 function getOptionsUnfavorite() {
   clean(optionsDiv.options);
+  optionsDiv.getSettingsOption();
   optionsDiv.getTemperatureOptions();
   optionsDiv.getReloadOptions();
   optionsDiv.getUnFavoriteOption();

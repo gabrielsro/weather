@@ -61,7 +61,7 @@ body {
 .options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 7vh;
   margin-bottom: 1vh;
@@ -71,6 +71,11 @@ body {
   align-self: center;
   display: flex;
   height: 6vh;
+}
+
+.option-settings img {
+  height: auto;
+  width: 38px;
 }
 
 .option-temperature {
@@ -84,7 +89,7 @@ body {
 
 .option-temperature img {
   height: auto;
-  max-width: 50px;
+  max-width: 45px;
 }
 
 .option-temperature label {
