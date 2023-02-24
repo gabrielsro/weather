@@ -82,11 +82,11 @@ body {
 
 .option-temperature img {
   height: auto;
-  max-width: 60px;
+  max-width: 50px;
 }
 
 .option-temperature label {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .option-temperature input {
