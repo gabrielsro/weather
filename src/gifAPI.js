@@ -69,6 +69,11 @@ async function getWeatherGif(weather) {
   if (weather.match(/fog/)) {
     id = "oAbvMXvah1M0U";
   }
+
+  if (weather.match(/sleet/)) {
+    id = "d3mlmtNPoxNrt4Bi";
+  }
+
   if (weather.match(/smoke/)) {
     id = "l2Je9dUI5LpzfHGTe";
   }
