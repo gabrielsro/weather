@@ -6,8 +6,6 @@ makeSearchBar();
 getOptions(false);
 
 if (localStorage.length > 0) {
-  let x = JSON.parse(localStorage.getItem("cities"));
-  console.log(x);
   if (JSON.parse(localStorage.getItem("cities")).length > 0) {
     favoritesBar.makeFavoritesBar();
   }
