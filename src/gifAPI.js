@@ -33,6 +33,9 @@ async function getWeatherGif(weather) {
     } else {
       id = "W0c3xcZ3F1d0EYYb0f";
     }
+    if (weather.match(/\D+(?=\s)/)[0] == "light") {
+      id = "3osxYzIQRqN4DOEddC";
+    }
   }
   if (weather.match(/clouds/)) {
     if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
