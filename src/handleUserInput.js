@@ -63,7 +63,9 @@ export async function getCardForFavList(location, units) {
     });
     let dateAtCitySimple = dateAtCity.toDateString();
     let temperature = apiPromiseResolved.main.temp;
+    let tempRounded = Math.round(temperature * 10) / 10;
     let temperatureFeels = apiPromiseResolved.main.feels_like;
+    let tempFeelsRounded = Math.round(temperatureFeels * 10) / 10;
     let weather = apiPromiseResolved.weather[0].description;
 
     let card = showOnCard(
@@ -72,8 +74,8 @@ export async function getCardForFavList(location, units) {
       country,
       timeAtCity,
       dateAtCitySimple,
-      temperature,
-      temperatureFeels,
+      tempRounded,
+      tempFeelsRounded,
       weather
     );
     return card;
@@ -118,7 +120,9 @@ export async function getWeather(location, units) {
     });
     let dateAtCitySimple = dateAtCity.toDateString();
     let temperature = apiPromiseResolved.main.temp;
+    let tempRounded = Math.round(temperature * 10) / 10;
     let temperatureFeels = apiPromiseResolved.main.feels_like;
+    let tempFeelsRounded = Math.round(temperatureFeels * 10) / 10;
     let weather = apiPromiseResolved.weather[0].description;
     let gifSrc = "";
     try {
@@ -174,8 +178,8 @@ export async function getWeather(location, units) {
       country,
       timeAtCity,
       dateAtCitySimple,
-      temperature,
-      temperatureFeels,
+      tempRounded,
+      tempFeelsRounded,
       weather,
       rain1h,
       rain3h,
