@@ -7,7 +7,8 @@ export function makeBasicsCard(
   date,
   temp,
   tempFeels,
-  tempUnit
+  tempUnit,
+  forFavList
 ) {
   let basics = document.createElement("div");
   basics.classList.add("basics");

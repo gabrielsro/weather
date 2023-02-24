@@ -1,5 +1,6 @@
 import "./style.css";
 import { showOnInfo } from "./showData";
+import { showOnCard } from "./showData";
 import { makeErrorCard } from "./errorCards";
 import { clean } from "./showData";
 import { getWeatherGif } from "./gifAPI";
@@ -27,6 +28,49 @@ const handleUserInput = {
     }
   },
 };
+
+export async function getCardForFavList(location, units) {
+  let apiPromise = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${handleUserInput.weatherKey}&units=${units}`,
+    { mode: "cors" }
+  );
+  let apiPromiseResolved = await apiPromise.json();
+  if (apiPromiseResolved.cod == 404) {
+    let errorCard = await makeErrorCard(404);
+    clean(result);
+    result.appendChild(errorCard);
+    getOptions(false);
+  } else {
+    let city = apiPromiseResolved.name;
+    let country = null;
+    country = apiPromiseResolved.sys.country;
+    let timeNow = new Date().valueOf();
+    let offset = new Date().getTimezoneOffset() * 60 * 1000;
+    let dateAtCity = new Date(
+      timeNow + offset + apiPromiseResolved.timezone * 1000
+    );
+    let timeAtCity = dateAtCity.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+    let dateAtCitySimple = dateAtCity.toDateString();
+    let temperature = apiPromiseResolved.main.temp;
+    let temperatureFeels = apiPromiseResolved.main.feels_like;
+    let weather = apiPromiseResolved.weather[0].description;
+
+    let card = showOnCard(
+      units,
+      city,
+      country,
+      timeAtCity,
+      dateAtCitySimple,
+      temperature,
+      temperatureFeels,
+      weather
+    );
+    return card;
+  }
+}
 
 export async function getWeather(location, units) {
   let apiPromise = await fetch(

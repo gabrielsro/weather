@@ -10,6 +10,33 @@ import { makeRainCard } from "./makeRainCard";
 
 const result = document.querySelector(".result");
 
+function showOnCard(
+  units,
+  city,
+  country,
+  time,
+  date,
+  temp,
+  tempFeels,
+  weather
+) {
+  let tempUnit = "";
+  units == "metric" ? (tempUnit = "°C") : (tempUnit = "°F");
+
+  let basicsCard = makeBasicsCard(
+    city,
+    country,
+    time,
+    date,
+    temp,
+    tempFeels,
+    tempUnit,
+    true
+  );
+
+  return basicsCard;
+}
+
 function showOnInfo(
   units,
   city,
@@ -78,4 +105,4 @@ function clean(parent) {
   }
 }
 
-export { showOnInfo, clean };
+export { showOnInfo, showOnCard, clean };
