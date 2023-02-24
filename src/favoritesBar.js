@@ -12,7 +12,8 @@ const favoritesBar = {
       let cityLink = document.createElement("p");
       cityLink.innerText = `${city}`;
       cityLink.addEventListener("click", () => {
-        getWeather(city, handleUserInput.units);
+        let units = JSON.parse(localStorage.getItem("metric"));
+        units ? getWeather(city, "metric") : getWeather(city, "imperial");
       });
       favoritesBar.appendChild(cityLink);
     });

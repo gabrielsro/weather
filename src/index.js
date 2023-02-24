@@ -3,7 +3,6 @@ import { makeSearchBar } from "./makeSearchBar";
 import favoritesBar from "./favoritesBar";
 
 makeSearchBar();
-getOptions(false);
 
 if (localStorage.length > 0) {
   if (localStorage.getItem("cities")) {
@@ -12,11 +11,17 @@ if (localStorage.length > 0) {
     }
   } else {
     let citiesArray = [];
+    let metric = true;
     let citiesArrayJSON = JSON.stringify(citiesArray);
     localStorage.setItem("cities", `${citiesArrayJSON}`);
+    localStorage.setItem("metric", `${metric}`);
   }
 } else {
   let citiesArray = [];
+  let metric = true;
   let citiesArrayJSON = JSON.stringify(citiesArray);
   localStorage.setItem("cities", `${citiesArrayJSON}`);
+  localStorage.setItem("metric", `${metric}`);
 }
+
+getOptions(false);

@@ -11,13 +11,19 @@ const result = document.querySelector(".result");
 const handleUserInput = {
   weatherKey: "8ae2d13e54ebef775efff2c52817a5e2",
   gifKey: "ZSqLZBoP1L25pS03G478pjRBb0NESb0C",
-  units: "metric",
+  units: JSON.parse(localStorage.getItem("metric")),
   handleSearchIcon() {
     let searchbar = document.querySelector(".searchbar > input");
-    const units = document.querySelector(".options > div > div > div > input");
-    units.checked ? (this.units = "metric") : (this.units = "imperial");
+    let units = JSON.parse(localStorage.getItem("metric"));
+    let unitsToUse = "";
+    units ? (unitsToUse = "metric") : (unitsToUse = "imperial");
     if (searchbar.value) {
-      getWeather(searchbar.value, handleUserInput.units);
+      getWeather(searchbar.value, unitsToUse);
+    } else {
+      let city = document.querySelector(".city");
+      if (city) {
+        getWeather(city.innerText, unitsToUse);
+      }
     }
   },
 };
@@ -37,7 +43,6 @@ export async function getWeather(location, units) {
     let city = apiPromiseResolved.name;
 
     let cities = await JSON.parse(localStorage.getItem("cities"));
-    console.log(cities);
     if (cities.length > 0 && cities.some((c) => c == city)) {
       getOptionsUnfavorite();
     } else {
