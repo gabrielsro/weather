@@ -13,10 +13,16 @@ export function makeReloadOption() {
   reloadOption.classList.add("option-reload");
 
   reloadOption.addEventListener("click", () => {
-    let city = document.getElementById("city");
-    let cityName = city.innerText;
-    clean(".result");
-    handleUserInput.handleSearchIcon(cityName);
+    let info = document.querySelector(".info");
+    if (info) {
+      let city = document.getElementById("city");
+      let cityName = city.innerText;
+      clean(".result");
+      handleUserInput.handleSearchIcon(cityName);
+    } else {
+      clean(".result");
+      handleUserInput.handleSearchIcon();
+    }
   });
 
   return reloadOption;
