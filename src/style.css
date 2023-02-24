@@ -5,6 +5,10 @@
   font-family: sans-serif;
 }
 
+#hidden {
+  display: none;
+}
+
 .navbar,
 .options {
   border-radius: 5px;

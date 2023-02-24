@@ -1,5 +1,7 @@
 import handleUserInput from "./handleUserInput";
 import temperatureIcon from "./thermometer-outline.svg";
+import { makeFavList } from "./makeFavList";
+import { clean } from "./showData";
 
 export function makeTemperatureOption() {
   let temperatureOptions = document.createElement("div");
@@ -25,7 +27,13 @@ export function makeTemperatureOption() {
   }
   celsius.addEventListener("click", () => {
     localStorage.setItem("metric", "true");
-    handleUserInput.handleSearchIcon();
+    let displayingCity = document.querySelector(".info");
+    if (displayingCity) {
+      handleUserInput.handleSearchIcon();
+    } else {
+      clean(".result");
+      makeFavList();
+    }
   });
   celsius.setAttribute("value", "metric");
 
@@ -34,7 +42,13 @@ export function makeTemperatureOption() {
   }
   fahrenheit.addEventListener("click", () => {
     localStorage.setItem("metric", "false");
-    handleUserInput.handleSearchIcon();
+    let displayingCity = document.querySelector(".info");
+    if (displayingCity) {
+      handleUserInput.handleSearchIcon();
+    } else {
+      clean(".result");
+      makeFavList();
+    }
   });
 
   let divCelsius = document.createElement("div");

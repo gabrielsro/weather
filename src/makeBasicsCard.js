@@ -1,4 +1,5 @@
 import { getFlag } from "./flagAPI";
+import handleUserInput from "./handleUserInput";
 
 export function makeBasicsCard(
   city,
@@ -60,6 +61,12 @@ export function makeBasicsCard(
   basicsTemperature.appendChild(feelsLabel);
   basicsTemperature.appendChild(tempFeelsLike);
   basics.appendChild(basicsTemperature);
+
+  if (forFavList) {
+    basics.addEventListener("click", () =>
+      handleUserInput.handleSearchIcon(city)
+    );
+  }
 
   return basics;
 }

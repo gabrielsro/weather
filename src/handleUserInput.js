@@ -13,7 +13,7 @@ const handleUserInput = {
   weatherKey: "8ae2d13e54ebef775efff2c52817a5e2",
   gifKey: "ZSqLZBoP1L25pS03G478pjRBb0NESb0C",
   units: JSON.parse(localStorage.getItem("metric")),
-  handleSearchIcon() {
+  handleSearchIcon(cityFromCard) {
     let searchbar = document.querySelector(".searchbar > input");
     let units = JSON.parse(localStorage.getItem("metric"));
     let unitsToUse = "";
@@ -21,8 +21,10 @@ const handleUserInput = {
     if (searchbar.value) {
       getWeather(searchbar.value, unitsToUse);
     } else {
-      let city = document.querySelector(".city");
-      if (city) {
+      if (cityFromCard) {
+        getWeather(cityFromCard, unitsToUse);
+      } else {
+        let city = document.querySelector(".city");
         getWeather(city.innerText, unitsToUse);
       }
     }
@@ -73,6 +75,10 @@ export async function getCardForFavList(location, units) {
 }
 
 export async function getWeather(location, units) {
+  let favBar = document.querySelector(".favorites-bar");
+  if (favBar) {
+    favBar.removeAttribute("id");
+  }
   let apiPromise = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${handleUserInput.weatherKey}&units=${units}`,
     { mode: "cors" }

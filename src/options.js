@@ -69,4 +69,12 @@ function getOptionsUnfavorite() {
   optionsDiv.getShowFavsOption();
 }
 
-export { getOptions, getOptionsUnfavorite };
+function getOptionsFavList() {
+  clean(optionsDiv.options);
+  optionsDiv.getSettingsOption();
+  optionsDiv.getTemperatureOptions();
+  optionsDiv.getReloadOptions();
+  optionsDiv.options.classList.remove("options-compact");
+}
+
+export { getOptions, getOptionsUnfavorite, getOptionsFavList };

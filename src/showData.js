@@ -100,8 +100,15 @@ function showOnInfo(
 }
 
 function clean(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
+  if (typeof parent == "string") {
+    let parentElement = document.querySelector(parent);
+    while (parentElement.firstChild) {
+      parentElement.removeChild(parentElement.firstChild);
+    }
+  } else {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
   }
 }
 
