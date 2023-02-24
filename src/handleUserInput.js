@@ -4,6 +4,7 @@ import { makeErrorCard } from "./errorCards";
 import { clean } from "./showData";
 import { getWeatherGif } from "./gifAPI";
 import { getOptions } from "./options";
+import { getOptionsUnfavorite } from "./options";
 
 const result = document.querySelector(".result");
 
@@ -21,7 +22,7 @@ const handleUserInput = {
   },
 };
 
-async function getWeather(location, units) {
+export async function getWeather(location, units) {
   let apiPromise = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${handleUserInput.weatherKey}&units=${units}`,
     { mode: "cors" }
@@ -33,8 +34,15 @@ async function getWeather(location, units) {
     result.appendChild(errorCard);
     getOptions(false);
   } else {
-    getOptions(true);
     let city = apiPromiseResolved.name;
+
+    let cities = JSON.parse(localStorage.getItem("cities"));
+    if (cities.length > 0 && cities.some((c) => c == city)) {
+      getOptionsUnfavorite();
+    } else {
+      getOptions(true);
+    }
+
     let country = null;
     country = apiPromiseResolved.sys.country;
     let timeNow = new Date().valueOf();

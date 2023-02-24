@@ -110,18 +110,35 @@ body {
   height: 60%;
 }
 
-.option-favorite {
+.option-favorite,
+.option-unfavorite {
   align-items: center;
   justify-self: end;
 }
 
-.option-favorite img {
+.option-favorite img,
+.option-unfavorite img {
   width: auto;
   height: 70%;
 }
 
 .options > div > div div {
   align-items: center;
+}
+
+.favorites-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  overflow: auto;
+}
+
+.favorites-bar p {
+  font-size: 1.8rem;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  font-weight: bold;
 }
 
 .info {
@@ -136,7 +153,8 @@ body {
 .cloudStats,
 .windStats,
 .snow-card,
-.rain-card {
+.rain-card,
+.favorites-bar {
   border-radius: 5px;
   margin-bottom: 1vh;
   background-color: #eee;
