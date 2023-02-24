@@ -8,10 +8,7 @@ export function makeFavoriteOption() {
   let favoriteImage = new Image();
   favoriteImage.alt = "Favorite icon";
   favoriteImage.src = favoriteIcon;
-  let favoriteText = document.createElement("p");
-  favoriteText.innerText = "Add favorite";
   favoriteOption.appendChild(favoriteImage);
-  favoriteOption.appendChild(favoriteText);
 
   favoriteOption.addEventListener("click", () => {
     let city = document.querySelector(".city");

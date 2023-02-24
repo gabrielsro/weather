@@ -8,11 +8,8 @@ export function makeUnfavoriteOption() {
   let unfavoriteIcon = new Image();
   unfavoriteIcon.alt = "Remove from favorites icon";
   unfavoriteIcon.src = UnfavoriteIcon;
-  let text = document.createElement("p");
-  text.innerText = "Remove favorite";
 
   unfavoriteOption.appendChild(unfavoriteIcon);
-  unfavoriteOption.appendChild(text);
 
   unfavoriteOption.addEventListener("click", () => {
     let city = document.querySelector(".city");

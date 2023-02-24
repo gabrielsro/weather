@@ -59,8 +59,10 @@ body {
 }
 
 .options {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   height: 7vh;
   margin-bottom: 1vh;
 }
@@ -100,14 +102,9 @@ body {
   justify-self: center;
 }
 
-.option-reload select {
-  height: 50%;
-  margin-left: 5px;
-}
-
 .option-reload img {
   width: auto;
-  height: 60%;
+  height: 77%;
 }
 
 .option-favorite,
@@ -119,7 +116,7 @@ body {
 .option-favorite img,
 .option-unfavorite img {
   width: auto;
-  height: 70%;
+  height: 77%;
 }
 
 .options > div > div div {
