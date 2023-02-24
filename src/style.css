@@ -67,6 +67,12 @@ body {
   margin-bottom: 1vh;
 }
 
+.options-compact {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .options div {
   align-self: center;
   display: flex;
@@ -96,6 +102,10 @@ body {
   font-size: 1.1rem;
 }
 
+.selected-metric {
+  font-weight: bold;
+}
+
 .option-temperature input {
   height: 1.1em;
   width: 1.1em;
@@ -109,7 +119,7 @@ body {
 
 .option-reload img {
   width: auto;
-  height: 77%;
+  height: 79%;
 }
 
 .option-favorite,

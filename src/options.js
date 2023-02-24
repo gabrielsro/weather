@@ -39,18 +39,21 @@ function getOptions(all) {
   if (all) {
     let cities = JSON.parse(localStorage.getItem("cities"));
     if (cities.length > 0) {
+      optionsDiv.options.classList.remove("options-compact");
       optionsDiv.getSettingsOption();
       optionsDiv.getTemperatureOptions();
       optionsDiv.getReloadOptions();
       optionsDiv.getFavoriteOption();
       optionsDiv.getShowFavsOption();
     } else {
+      optionsDiv.options.classList.remove("options-compact");
       optionsDiv.getSettingsOption();
       optionsDiv.getTemperatureOptions();
       optionsDiv.getReloadOptions();
       optionsDiv.getFavoriteOption();
     }
   } else {
+    optionsDiv.options.classList.toggle("options-compact");
     optionsDiv.getSettingsOption();
     optionsDiv.getTemperatureOptions();
   }
@@ -58,6 +61,7 @@ function getOptions(all) {
 
 function getOptionsUnfavorite() {
   clean(optionsDiv.options);
+  optionsDiv.options.classList.remove("options-compact");
   optionsDiv.getSettingsOption();
   optionsDiv.getTemperatureOptions();
   optionsDiv.getReloadOptions();
