@@ -37,6 +37,7 @@ export async function getWeather(location, units) {
     let city = apiPromiseResolved.name;
 
     let cities = JSON.parse(localStorage.getItem("cities"));
+    console.log(cities);
     if (cities.length > 0 && cities.some((c) => c == city)) {
       getOptionsUnfavorite();
     } else {
