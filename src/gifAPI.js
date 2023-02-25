@@ -78,6 +78,10 @@ async function getWeatherGif(weather) {
     id = "d3mlmtNPoxNrt4Bi";
   }
 
+  if (weather.match(/drizzle/)) {
+    id = "xT9GEOg09OuResnZ6g";
+  }
+
   if (weather.match(/smoke/)) {
     id = "l2Je9dUI5LpzfHGTe";
   }
