@@ -253,7 +253,7 @@ body {
   grid-row: 2/4;
   display: grid;
   gap: 5vw;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.1fr 2fr;
   grid-template-rows: auto auto;
 }
 
@@ -295,7 +295,7 @@ body {
   display: grid;
   gap: 1vw;
   grid-template-rows: repeat(auto 3);
-  padding-left: 3vw;
+  padding-left: 5vw;
 }
 
 .basics-temperature > p:first-child,
