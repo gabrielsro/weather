@@ -237,7 +237,6 @@ body {
   grid-template-columns: 2.1fr 1fr;
   grid-template-rows: auto 3fr 1fr;
   padding: 1vw;
-  padding-right: 5vw;
   padding-left: 3vw;
 }
 
@@ -295,13 +294,12 @@ body {
   display: grid;
   gap: 1vw;
   grid-template-rows: repeat(auto 3);
-  padding-left: 5vw;
 }
 
 .basics-temperature > p:first-child,
 .basics-temperature > p:nth-child(3) {
   font-weight: bold;
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   justify-self: center;
 }
 
