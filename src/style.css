@@ -237,7 +237,7 @@ body {
   grid-template-columns: auto auto;
   grid-template-rows: auto 3fr 1fr;
   padding: 1vw;
-  padding-right: 7vw;
+  padding-right: 5vw;
   padding-left: 3vw;
 }
 
