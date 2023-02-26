@@ -113,6 +113,9 @@ async function getWeatherGif(
     if (weather.match(/smoke/)) {
       id = "l2Je9dUI5LpzfHGTe";
     }
+    if (weather.match(/thunderstorm/)) {
+      id = "3o85xzEtQs693ln3qM";
+    }
   }
 
   //SUNSETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
@@ -139,6 +142,9 @@ async function getWeatherGif(
       }
       if (weather.match(/clear/)) {
         id = "ZZIEtQHmiTNwuxTOdt";
+      }
+      if (weather.match(/thunderstorm/)) {
+        id = "3o85xzEtQs693ln3qM";
       }
     }
   }
@@ -213,6 +219,9 @@ async function getWeatherGif(
 
     if (weather.match(/smoke/)) {
       id = "l2Je9dUI5LpzfHGTe";
+    }
+    if (weather.match(/thunderstorm/)) {
+      id = "3o85xzEtQs693ln3qM";
     }
   }
   let apiPromise = await fetch(
