@@ -102,8 +102,10 @@ function showOnInfo(
 function clean(parent) {
   if (typeof parent == "string") {
     let parentElement = document.querySelector(parent);
-    while (parentElement.firstChild) {
-      parentElement.removeChild(parentElement.firstChild);
+    if (parentElement) {
+      while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+      }
     }
   } else {
     while (parent.firstChild) {

@@ -55,10 +55,14 @@ async function getWeatherGif(weather) {
   if (weather.match(/snow/)) {
     if (weather.match(/\D+(?=\s)/)) {
       if (weather.match(/\D+(?=\s)/)[0] == "light") {
-        id = "3ohc11DpNMf7qnqxR6";
+        if (weather.match(/shower/)) {
+          id = "ONLoRRAHQh5kY";
+        } else {
+          id = "3ohc11DpNMf7qnqxR6";
+        }
       }
     } else {
-      id = "JWegbsAWQS1YA";
+      id = "OWxrxRHY6afRu";
     }
   }
   if (weather.match(/haze/)) {

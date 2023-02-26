@@ -12,9 +12,9 @@ export function makeSettingsOption() {
   settingsImage.src = SettingsIcon;
   settingsOption.appendChild(settingsImage);
 
-  settingsOption.addEventListener("click", (click) =>
-    handleSettingOptionClick(click)
-  );
+  settingsOption.addEventListener("click", (click) => {
+    handleSettingOptionClick(click);
+  });
 
   return settingsOption;
 }
@@ -28,9 +28,6 @@ function handleSettingOptionClick(click) {
   optionsBar.removeChild(optionsBar.firstChild);
   optionsBar.prepend(settingsOpenOption);
   let settingsBar = makeSettingsBar();
-  settingsBar.addEventListener("click", (click) => {
-    click.stopPropagation();
-  });
   if (favBar) {
     header.insertBefore(settingsBar, favBar);
   } else {
@@ -42,7 +39,7 @@ function handleSettingOptionClick(click) {
   });
 }
 
-function handleOutOfSettingsClick() {
+export function handleOutOfSettingsClick() {
   let header = document.querySelector("header");
   let settingsBarElement = document.querySelector(".settings-bar");
   if (settingsBarElement) {

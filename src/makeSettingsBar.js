@@ -11,5 +11,9 @@ export function makeSettingsBar() {
   let sortSetting = makeSortSetting();
   settingsBar.appendChild(sortSetting);
 
+  settingsBar.addEventListener("click", (click) => {
+    click.stopPropagation();
+  });
+
   return settingsBar;
 }

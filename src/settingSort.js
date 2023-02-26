@@ -13,7 +13,7 @@ export function makeSortSetting() {
   let sortSelect = document.createElement("select");
 
   let nameGroup = document.createElement("optgroup");
-  nameGroup.innerText = "Alphabetical Order";
+  nameGroup.setAttribute("label", "Alphabetical Order");
   let ascendingName = document.createElement("option");
   ascendingName.setAttribute("value", "ascendingName");
   ascendingName.innerText = "A to Z";
@@ -24,7 +24,7 @@ export function makeSortSetting() {
   nameGroup.appendChild(descendingName);
 
   let tempGroup = document.createElement("optgroup");
-  tempGroup.innerText = "Actual Temperature";
+  tempGroup.setAttribute("label", "Actual Temperature");
   let ascendingTemp = document.createElement("option");
   ascendingTemp.setAttribute("value", "ascendingName");
   ascendingTemp.innerText = "Coldest to Hottest";
@@ -35,7 +35,7 @@ export function makeSortSetting() {
   tempGroup.appendChild(descendingTemp);
 
   let tempFeelsGroup = document.createElement("optgroup");
-  tempFeelsGroup.innerText = "Apparent Temperature";
+  tempFeelsGroup.setAttribute("label", "Apparent Temperature");
   let ascendingTempFeels = document.createElement("option");
   ascendingTempFeels.setAttribute("value", "ascendingTempFeels");
   ascendingTempFeels.innerText = "Coldest to Hottest";
@@ -46,8 +46,8 @@ export function makeSortSetting() {
   tempFeelsGroup.appendChild(descendingTempFeels);
 
   sortSelect.appendChild(nameGroup);
-  sortSelect.appendChild(tempGroup);
   sortSelect.appendChild(tempFeelsGroup);
+  sortSelect.appendChild(tempGroup);
 
   sortSetting.appendChild(sortIcon);
   sortSetting.appendChild(sortLabel);

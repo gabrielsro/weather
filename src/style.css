@@ -156,7 +156,7 @@ body {
 }
 
 .settings-bar select {
-  width: 15vw;
+  width: 11vw;
   margin-left: 1vw;
 }
 
@@ -168,7 +168,6 @@ body {
 .settings-bar > div:first-child img {
   height: auto;
   width: 30px;
-  margin-right: 2vw;
 }
 
 .settings-bar > div:nth-child(2) img {
