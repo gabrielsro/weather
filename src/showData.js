@@ -7,6 +7,8 @@ import { makeWindCard } from "./makeWindCard";
 import { makeGifCard } from "./makeGifCard";
 import { makeSnowCard } from "./makeSnowCard";
 import { makeRainCard } from "./makeRainCard";
+import { makeUVIndexCard } from "./makeUVIndexCard";
+import { makeMoonPhaseCard } from "./makeMoonPhaseCard";
 
 const result = document.querySelector(".result");
 
@@ -54,7 +56,9 @@ function showOnInfo(
   sunset,
   cloudiness,
   wind,
-  gifSrc
+  gifSrc,
+  moonphase,
+  uvindex
 ) {
   clean(result);
   let tempUnit = "";
@@ -91,6 +95,14 @@ function showOnInfo(
   }
   if (rainVol1h || rainVol3h) {
     info.appendChild(rainCard);
+  }
+  if (uvindex > 0) {
+    let uvCard = makeUVIndexCard(uvindex);
+    info.appendChild(uvCard);
+  }
+  if (uvindex == 0) {
+    let moonPhaseCard = makeMoonPhaseCard(moonphase);
+    info.appendChild(moonPhaseCard);
   }
   info.appendChild(cloudsCard);
   info.appendChild(windCard);

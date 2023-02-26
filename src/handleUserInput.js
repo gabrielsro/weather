@@ -12,6 +12,7 @@ const result = document.querySelector(".result");
 
 const handleUserInput = {
   weatherKey: "8ae2d13e54ebef775efff2c52817a5e2",
+  sunAndMoonKey: "EYEAZJX93QXNQVPUM8AYE38NX",
   gifKey: "ZSqLZBoP1L25pS03G478pjRBb0NESb0C",
   units: JSON.parse(localStorage.getItem("metric")),
   handleSearchIcon(cityFromCard) {
@@ -125,11 +126,6 @@ export async function getWeather(location, units) {
     let tempFeelsRounded = Math.round(temperatureFeels * 10) / 10;
     let weather = apiPromiseResolved.weather[0].description;
     let gifSrc = "";
-    try {
-      gifSrc = await getWeatherGif(weather);
-    } catch (error) {
-      console.log("Error while fetching weather gif: ", error);
-    }
     let rain1h = "";
     let rain3h = "";
     if (apiPromiseResolved.rain) {
@@ -172,6 +168,30 @@ export async function getWeather(location, units) {
     });
     let cloudiness = apiPromiseResolved.clouds["all"];
     let wind = apiPromiseResolved.wind["speed"];
+
+    let sunAndMoonApiPromise = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${
+        Date.parse(dateAtCity) / 1000
+      }/?key=${handleUserInput.sunAndMoonKey}&elements=uvindex,moonphase`,
+      { mode: "cors" }
+    );
+
+    let sunAndMoonApiPromiseResolved = await sunAndMoonApiPromise.json();
+    let moonphase;
+    let uvindex;
+    if (sunAndMoonApiPromiseResolved.currentConditions) {
+      moonphase = sunAndMoonApiPromiseResolved.currentConditions.moonphase;
+      uvindex = sunAndMoonApiPromiseResolved.currentConditions.uvindex;
+    } else {
+      moonphase = sunAndMoonApiPromiseResolved.days[0].moonphase;
+      uvindex = sunAndMoonApiPromiseResolved.days[0].uvindex;
+    }
+    try {
+      gifSrc = await getWeatherGif(weather, uvindex, moonphase);
+    } catch (error) {
+      console.log("Error while fetching weather gif: ", error);
+    }
+
     showOnInfo(
       units,
       city,
@@ -189,7 +209,9 @@ export async function getWeather(location, units) {
       sunset,
       cloudiness,
       wind,
-      gifSrc
+      gifSrc,
+      moonphase,
+      uvindex
     );
   }
 }

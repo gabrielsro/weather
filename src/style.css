@@ -206,7 +206,9 @@ body {
 .snow-card,
 .rain-card,
 .favorites-bar,
-.settings-bar {
+.settings-bar,
+.uv-index-card,
+.moon-phase-card {
   border-radius: 5px;
   margin-bottom: 1vh;
   background-color: #eee;
@@ -379,9 +381,11 @@ body {
 }
 
 .cloudStats,
-.windStats {
+.windStats,
+.uv-index-card,
+.moon-phase-card {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 3.8fr;
   padding-left: 3vw;
 }
 
@@ -390,13 +394,26 @@ body {
 }
 
 .cloudStats img,
-.windStats img {
+.windStats img,
+.uv-index-card img {
   height: auto;
   width: 60px;
 }
 
+.moon-phase-card img {
+  height: auto;
+  width: 55px;
+}
+
+.moon-phase-card {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .cloudStats p,
-.windStats p {
+.windStats p,
+.uv-index-card p,
+.moon-phase-card p {
   align-self: center;
   font-size: 1.7rem;
 }

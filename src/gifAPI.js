@@ -22,72 +22,139 @@ async function getErrorGif() {
   return src;
 }
 
-async function getWeatherGif(weather) {
+async function getWeatherGif(weather, uvindex, moonphase) {
   let id = "uymKgqrJ9Or60";
-  if (weather.match(/rain/)) {
-    if (
-      weather.match(/\D+(?=\s)/)[0] == "light" ||
-      weather.match(/\D+(?=\s)/)[0] == "drizzle"
-    ) {
-      id = "l0IrIkq7Q3iRII0hy";
-    }
-    if (weather.match(/thunderstorm/)) {
-      console.log("thunderstorm");
-      id = "3osxYzIQRqN4DOEddC";
-    } else {
-      id = "W0c3xcZ3F1d0EYYb0f";
-    }
-  }
-  if (weather.match(/clouds/)) {
-    if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
-      id = "dWIau1ZRyIj3j6YEaL";
-    }
-    if (
-      weather.match(/\D+(?=\s)/)[0] == "few" ||
-      weather.match(/\D+(?=\s)/)[0] == "scattered"
-    ) {
-      id = "uOuiK4F5zZkZ2";
-    }
-    if (weather.match(/\D+(?=\s)/)[0] == "broken") {
-      id = "12eCo8gpSMMgrS";
-    }
-  }
-  if (weather.match(/snow/)) {
-    if (weather.match(/\D+(?=\s)/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "light") {
-        if (weather.match(/shower/)) {
-          id = "ONLoRRAHQh5kY";
-        } else {
-          id = "3ohc11DpNMf7qnqxR6";
-        }
+  if (uvindex == 0) {
+    if (weather.match(/rain/)) {
+      if (
+        weather.match(/\D+(?=\s)/)[0] == "light" ||
+        weather.match(/\D+(?=\s)/)[0] == "drizzle"
+      ) {
+        id = "l0IrIkq7Q3iRII0hy";
       }
-    } else {
-      id = "OWxrxRHY6afRu";
+      if (weather.match(/thunderstorm/)) {
+        id = "3osxYzIQRqN4DOEddC";
+      } else {
+        id = "W0c3xcZ3F1d0EYYb0f";
+      }
     }
-  }
-  if (weather.match(/haze/)) {
-    id = "r2OMuTCFo0rv2rgAL5";
-  }
-  if (weather.match(/mist/)) {
-    id = "mW03sTZVT9IY0";
-  }
-  if (weather.match(/clear/)) {
-    id = "RqSJ6nQVsOpxe";
-  }
-  if (weather.match(/fog/)) {
-    id = "oAbvMXvah1M0U";
-  }
+    if (weather.match(/clouds/)) {
+      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
+        id = "dWIau1ZRyIj3j6YEaL";
+      }
+      if (
+        weather.match(/\D+(?=\s)/)[0] == "few" ||
+        weather.match(/\D+(?=\s)/)[0] == "scattered"
+      ) {
+        id = "6xrCAnXLfPQ64";
+      }
+      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
+        id = "12eCo8gpSMMgrS";
+      }
+    }
+    if (weather.match(/snow/)) {
+      if (weather.match(/\D+(?=\s)/)) {
+        if (weather.match(/\D+(?=\s)/)[0] == "light") {
+          if (weather.match(/shower/)) {
+            id = "ONLoRRAHQh5kY";
+          } else {
+            id = "3ohc11DpNMf7qnqxR6";
+          }
+        }
+      } else {
+        id = "OWxrxRHY6afRu";
+      }
+    }
+    if (weather.match(/haze/)) {
+      id = "r2OMuTCFo0rv2rgAL5";
+    }
+    if (weather.match(/mist/)) {
+      id = "mW03sTZVT9IY0";
+    }
+    if (weather.match(/clear/)) {
+      id = "M0Do8W1sDlUQCIIXpn";
+    }
+    if (weather.match(/fog/)) {
+      id = "oAbvMXvah1M0U";
+    }
 
-  if (weather.match(/sleet/)) {
-    id = "d3mlmtNPoxNrt4Bi";
-  }
+    if (weather.match(/sleet/)) {
+      id = "d3mlmtNPoxNrt4Bi";
+    }
 
-  if (weather.match(/drizzle/)) {
-    id = "xT9GEOg09OuResnZ6g";
-  }
+    if (weather.match(/drizzle/)) {
+      id = "xT9GEOg09OuResnZ6g";
+    }
 
-  if (weather.match(/smoke/)) {
-    id = "l2Je9dUI5LpzfHGTe";
+    if (weather.match(/smoke/)) {
+      id = "l2Je9dUI5LpzfHGTe";
+    }
+  } else {
+    if (weather.match(/rain/)) {
+      if (
+        weather.match(/\D+(?=\s)/)[0] == "light" ||
+        weather.match(/\D+(?=\s)/)[0] == "drizzle"
+      ) {
+        id = "l0IrIkq7Q3iRII0hy";
+      }
+      if (weather.match(/thunderstorm/)) {
+        console.log("thunderstorm");
+        id = "3osxYzIQRqN4DOEddC";
+      } else {
+        id = "W0c3xcZ3F1d0EYYb0f";
+      }
+    }
+    if (weather.match(/clouds/)) {
+      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
+        id = "dWIau1ZRyIj3j6YEaL";
+      }
+      if (
+        weather.match(/\D+(?=\s)/)[0] == "few" ||
+        weather.match(/\D+(?=\s)/)[0] == "scattered"
+      ) {
+        id = "uOuiK4F5zZkZ2";
+      }
+      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
+        id = "M0Do8W1sDlUQCIIXpn";
+      }
+    }
+    if (weather.match(/snow/)) {
+      if (weather.match(/\D+(?=\s)/)) {
+        if (weather.match(/\D+(?=\s)/)[0] == "light") {
+          if (weather.match(/shower/)) {
+            id = "NEqxBcejKE68U";
+          } else {
+            id = "xULW8DoK3l8siZT2JW";
+          }
+        }
+      } else {
+        id = "s4Bi420mMDRBK";
+      }
+    }
+    if (weather.match(/haze/)) {
+      id = "r2OMuTCFo0rv2rgAL5";
+    }
+    if (weather.match(/mist/)) {
+      id = "mW03sTZVT9IY0";
+    }
+    if (weather.match(/clear/)) {
+      id = "6xrCAnXLfPQ64";
+    }
+    if (weather.match(/fog/)) {
+      id = "oAbvMXvah1M0U";
+    }
+
+    if (weather.match(/sleet/)) {
+      id = "d3mlmtNPoxNrt4Bi";
+    }
+
+    if (weather.match(/drizzle/)) {
+      id = "xT9GEOg09OuResnZ6g";
+    }
+
+    if (weather.match(/smoke/)) {
+      id = "l2Je9dUI5LpzfHGTe";
+    }
   }
   let apiPromise = await fetch(
     `https://api.giphy.com/v1/gifs/${id}?api_key=${gifKey}`,
