@@ -186,8 +186,28 @@ export async function getWeather(location, units) {
       moonphase = sunAndMoonApiPromiseResolved.days[0].moonphase;
       uvindex = sunAndMoonApiPromiseResolved.days[0].uvindex;
     }
+
+    let sunriseDate = new Date(
+      apiPromiseResolved.sys["sunrise"] * 1000 +
+        apiPromiseResolved.timezone * 1000 +
+        offset
+    );
+
+    let sunsetDate = new Date(
+      apiPromiseResolved.sys["sunset"] * 1000 +
+        apiPromiseResolved.timezone * 1000 +
+        offset
+    );
+
     try {
-      gifSrc = await getWeatherGif(weather, uvindex, moonphase);
+      gifSrc = await getWeatherGif(
+        weather,
+        dateAtCity,
+        sunriseDate,
+        sunsetDate,
+        units,
+        tempFeelsRounded
+      );
     } catch (error) {
       console.log("Error while fetching weather gif: ", error);
     }
