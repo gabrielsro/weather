@@ -253,7 +253,7 @@ body {
   grid-row: 2/4;
   display: grid;
   gap: 5vw;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.3fr 2fr;
   grid-template-rows: auto auto;
 }
 
