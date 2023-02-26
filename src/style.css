@@ -294,7 +294,7 @@ body {
   display: grid;
   gap: 1vw;
   grid-template-rows: repeat(auto 3);
-  padding-left: 2vw;
+  padding-left: 3vw;
 }
 
 .basics-temperature > p:first-child,
@@ -403,11 +403,13 @@ body {
 .uv-index-card img {
   height: auto;
   width: 70px;
+  margin-left: -1vw;
 }
 
 .moon-phase-card img {
   height: auto;
   width: 55px;
+  margin-left: 1vw;
 }
 
 .moon-phase-card {
