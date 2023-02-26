@@ -253,7 +253,7 @@ body {
   grid-row: 2/4;
   display: grid;
   gap: 5vw;
-  grid-template-columns: 1.3fr 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto;
 }
 
@@ -269,8 +269,9 @@ body {
   margin-bottom: 0.7vh;
 }
 
-.basics > div:nth-child(2) > div > p:nth-child(2) {
+.basics > div:nth-child(2) > div > span {
   font-size: 1.1rem;
+  white-space: nowrap;
 }
 
 .basics > div:nth-child(2) > p {

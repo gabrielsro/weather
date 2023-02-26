@@ -22,7 +22,7 @@ export function makeBasicsCard(
   basicsCountry.innerText = `${country}`;
   let basicsTime = document.createElement("p");
   basicsTime.innerText = `${time}`;
-  let basicsDate = document.createElement("p");
+  let basicsDate = document.createElement("span");
   basicsDate.innerText = `${date}`;
   let retrievalTime = document.createElement("p");
   retrievalTime.innerText = `Last update: ${new Date().toLocaleString()}`;
