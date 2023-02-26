@@ -70,7 +70,7 @@ export function makeAutoRefreshSetting() {
   nodes.push(oneDay);
 
   nodes.forEach((n) => {
-    if (n.value == JSON.parse(localStorage.getItem("refresh"))) {
+    if (JSON.stringify(n.value) == localStorage.getItem("refresh")) {
       n.setAttribute("selected", true);
     }
   });

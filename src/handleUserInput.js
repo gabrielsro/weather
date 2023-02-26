@@ -212,6 +212,11 @@ export async function getWeather(location, units) {
       console.log("Error while fetching weather gif: ", error);
     }
 
+    let day = false;
+    if (dateAtCity > sunriseDate && dateAtCity < sunsetDate) {
+      day = true;
+    }
+
     showOnInfo(
       units,
       city,
@@ -231,7 +236,8 @@ export async function getWeather(location, units) {
       wind,
       gifSrc,
       moonphase,
-      uvindex
+      uvindex,
+      day
     );
   }
 }

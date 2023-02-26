@@ -58,7 +58,8 @@ function showOnInfo(
   wind,
   gifSrc,
   moonphase,
-  uvindex
+  uvindex,
+  day
 ) {
   clean(result);
   let tempUnit = "";
@@ -96,16 +97,16 @@ function showOnInfo(
   if (rainVol1h || rainVol3h) {
     info.appendChild(rainCard);
   }
-  if (uvindex > 0) {
-    let uvCard = makeUVIndexCard(uvindex);
-    info.appendChild(uvCard);
-  }
-  if (uvindex == 0) {
+  info.appendChild(cloudsCard);
+  info.appendChild(windCard);
+  if (!day) {
     let moonPhaseCard = makeMoonPhaseCard(moonphase);
     info.appendChild(moonPhaseCard);
   }
-  info.appendChild(cloudsCard);
-  info.appendChild(windCard);
+  if (day) {
+    let uvCard = makeUVIndexCard(uvindex);
+    info.appendChild(uvCard);
+  }
   info.appendChild(sunCard);
 
   result.appendChild(info);

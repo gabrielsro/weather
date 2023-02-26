@@ -12,19 +12,12 @@ if (localStorage.length > 0) {
       favoritesBar.makeFavoritesBar();
       makeFavList();
     }
-  }
-  if (
-    localStorage.getItem("refresh") &&
-    localStorage.getItem("refresh") !== "Never"
-  ) {
-    autoRefreshSetup.handleAutoRefresh(localStorage.getItem("refresh"));
-  } else {
-    let citiesArray = [];
-    let metric = true;
-    let citiesArrayJSON = JSON.stringify(citiesArray);
-    localStorage.setItem("cities", `${citiesArrayJSON}`);
-    localStorage.setItem("metric", `${metric}`);
-    localStorage.setItem("refresh", "Never");
+    let refreshMode = localStorage.getItem("refresh");
+    if (refreshMode == "Never") {
+      autoRefreshSetup.auto = false;
+    } else {
+      autoRefreshSetup.handleAutoRefresh(localStorage.getItem("refresh"));
+    }
   }
 } else {
   let citiesArray = [];

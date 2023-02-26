@@ -50,7 +50,7 @@ export function makeMoonPhaseCard(moonphase) {
   }
 
   let description = document.createElement("p");
-  description.innerText = `Moon phase: ${phaseName}`;
+  description.innerText = `${phaseName}`;
 
   moonPhaseCard.appendChild(moonIcon);
   moonPhaseCard.appendChild(description);

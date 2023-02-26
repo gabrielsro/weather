@@ -10,19 +10,19 @@ export function makeUVIndexCard(uvindex) {
 
   let description;
   if (uvindex <= 2) {
-    description = "(Low)";
+    description = "(low)";
   }
   if (uvindex > 2 && uvindex <= 5) {
-    description = "(Moderate)";
+    description = "(moderate)";
   }
   if (uvindex > 5 && uvindex <= 7) {
-    description = "(High)";
+    description = "(high)";
   }
   if (uvindex > 7 && uvindex <= 10) {
-    description = "(Very High)";
+    description = "(very high)";
   }
   if (uvindex > 10) {
-    description = "(Extreme)";
+    description = "(extreme)";
   }
 
   let uvIndex = document.createElement("p");
