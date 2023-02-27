@@ -28,6 +28,7 @@ if (localStorage.length > 0) {
   localStorage.setItem("cities", `${citiesArrayJSON}`);
   localStorage.setItem("metric", `${metric}`);
   localStorage.setItem("refresh", `${refresh}`);
+  localStorage.setItem("sort", JSON.stringify("atoz"));
 }
 
 getOptions(false);

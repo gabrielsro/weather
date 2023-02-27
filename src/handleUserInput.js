@@ -206,7 +206,8 @@ export async function getWeather(location, units) {
         sunriseDate,
         sunsetDate,
         units,
-        tempFeelsRounded
+        tempFeelsRounded,
+        moonphase
       );
     } catch (error) {
       console.log("Error while fetching weather gif: ", error);

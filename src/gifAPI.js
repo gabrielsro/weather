@@ -28,7 +28,8 @@ async function getWeatherGif(
   sunriseDate,
   sunsetDate,
   units,
-  tempFeelsRounded
+  tempFeelsRounded,
+  moonphase
 ) {
   let temperature;
   if (units == "metric") {
@@ -70,7 +71,16 @@ async function getWeatherGif(
         weather.match(/\D+(?=\s)/)[0] == "few" ||
         weather.match(/\D+(?=\s)/)[0] == "scattered"
       ) {
-        id = "13QslXgKOQzmhy";
+        if (moonphase == 0.5) {
+          id = "nV5l2SFsU93ckaWlyn";
+        } else {
+          if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
+            id = "wwjEPjqcuPwvS";
+          }
+          if (weather.match(/\D+(?=\s)/)[0] == "few") {
+            id = "wwjEPjqcuPwvS";
+          }
+        }
       }
       if (weather.match(/\D+(?=\s)/)[0] == "broken") {
         id = "13QslXgKOQzmhy";
@@ -89,7 +99,7 @@ async function getWeatherGif(
             }
           }
         } else {
-          id = "OWxrxRHY6afRu";
+          id = "bGaOdqeqYQKc0";
         }
       }
     }
@@ -100,7 +110,17 @@ async function getWeatherGif(
       id = "3o72F65dJl7Z0PtdjG";
     }
     if (weather.match(/clear/)) {
-      id = "m5oQabBdoOye4";
+      if (moonphase == 0.5) {
+        id = "aN9GqoR7OD3nq";
+      }
+      if (moonphase > 0 && moonphase < 0.25) {
+        id = "9ukPOCS9EOEta";
+      }
+      if (moonphase > 0.75 && moonphase <= 1) {
+        id = "9ukPOCS9EOEta";
+      } else {
+        id = "m5oQabBdoOye4";
+      }
     }
     if (weather.match(/fog/)) {
       id = "dz6Nrk35xWP3q";
@@ -118,7 +138,7 @@ async function getWeatherGif(
       id = "l2Je9dUI5LpzfHGTe";
     }
     if (weather.match(/thunderstorm/)) {
-      id = "3o85xzEtQs693ln3qM";
+      id = "VJAuhRegmbXSAaffFR";
     }
     if (weather.match(/dust/)) {
       id = "l4pT0NtPSMV3pw6Lm";
@@ -203,7 +223,7 @@ async function getWeatherGif(
       id = "l2Je9dUI5LpzfHGTe";
     }
     if (weather.match(/thunderstorm/)) {
-      id = "3o85xzEtQs693ln3qM";
+      id = "3osxYzIQRqN4DOEddC";
     }
     if (weather.match(/dust/)) {
       id = "tqtZDj5BqC0CY";
@@ -237,7 +257,7 @@ async function getWeatherGif(
       id = "ZZIEtQHmiTNwuxTOdt";
     }
     if (weather.match(/thunderstorm/)) {
-      id = "3o85xzEtQs693ln3qM";
+      id = "Y4JPYsrJEk454pNbts";
     }
     if (weather.match(/fog/)) {
       id = "xT8qBj3Oxl9kuQKgOk";
