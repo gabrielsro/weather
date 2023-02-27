@@ -64,9 +64,11 @@ export function makeBasicsCard(
   basics.appendChild(basicsTemperature);
 
   if (forFavList) {
-    basics.addEventListener("click", () =>
-      handleUserInput.handleSearchIcon(city)
-    );
+    basics.addEventListener("click", () => {
+      let searchbar = document.querySelector(".searchbar > input");
+      searchbar.value = "";
+      handleUserInput.handleSearchIcon(city);
+    });
   }
 
   return basics;

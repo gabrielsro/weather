@@ -127,7 +127,6 @@ async function getWeatherGif(
 
   //DAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
   if (timeAtCity > sunriseDate && timeAtCity < sunsetDate) {
-    console.log("day");
     if (weather.match(/drizzle/)) {
       id = "xT9GEOg09OuResnZ6g";
     }
