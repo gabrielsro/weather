@@ -50,12 +50,16 @@ async function getWeatherGif(
         weather.match(/\D+(?=\s)/)[0] == "light" ||
         weather.match(/\D+(?=\s)/)[0] == "drizzle"
       ) {
-        id = "l0IrIkq7Q3iRII0hy";
+        id = "xT9GEIc1nQ7bVQQ54Q";
       }
       if (weather.match(/thunderstorm/)) {
         id = "3osxYzIQRqN4DOEddC";
+      }
+
+      if (weather.match(/moderate/)) {
+        id = "5torEEM8QnR95Cqg11";
       } else {
-        id = "W0c3xcZ3F1d0EYYb0f";
+        id = "5torEEM8QnR95Cqg11";
       }
     }
     if (weather.match(/clouds/)) {
@@ -124,16 +128,22 @@ async function getWeatherGif(
   //DAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
   if (timeAtCity > sunriseDate && timeAtCity < sunsetDate) {
     console.log("day");
+    if (weather.match(/drizzle/)) {
+      id = "xT9GEOg09OuResnZ6g";
+    }
     if (weather.match(/rain/)) {
-      if (
-        weather.match(/\D+(?=\s)/)[0] == "light" ||
-        weather.match(/\D+(?=\s)/)[0] == "drizzle"
-      ) {
-        id = "l0IrIkq7Q3iRII0hy";
+      if (weather.match(/\D+(?=\s)/)[0] == "drizzle") {
+        id = "xT9GEOg09OuResnZ6g";
       }
       if (weather.match(/thunderstorm/)) {
-        console.log("thunderstorm");
         id = "3osxYzIQRqN4DOEddC";
+      }
+      if (weather.match(/light/)) {
+        id = "l0IrIkq7Q3iRII0hy";
+      }
+
+      if (weather.match(/moderate/)) {
+        id = "W0c3xcZ3F1d0EYYb0f";
       } else {
         id = "W0c3xcZ3F1d0EYYb0f";
       }
