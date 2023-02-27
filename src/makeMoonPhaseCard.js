@@ -30,7 +30,7 @@ export function makeMoonPhaseCard(moonphase) {
   }
   if (moonphase > 0.25 && moonphase < 0.5) {
     moonIcon.src = WaxingGibbousMoon;
-    phaseName = "Wacing Gibbous";
+    phaseName = "Waxing Gibbous";
   }
   if (moonphase == 0.5) {
     moonIcon.src = FullMoon;

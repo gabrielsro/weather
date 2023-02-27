@@ -56,9 +56,11 @@ async function getWeatherGif(
       if (weather.match(/thunderstorm/)) {
         id = "3osxYzIQRqN4DOEddC";
       }
-
       if (weather.match(/moderate/)) {
         id = "5torEEM8QnR95Cqg11";
+      }
+      if (weather.match(/heavy/)) {
+        id = "l0MYAfxbg3fhqn1Ru";
       } else {
         id = "5torEEM8QnR95Cqg11";
       }
@@ -152,17 +154,20 @@ async function getWeatherGif(
     }
     if (weather.match(/rain/)) {
       if (weather.match(/\D+(?=\s)/)[0] == "drizzle") {
-        id = "xT9GEOg09OuResnZ6g";
+        id = "l0IrIkq7Q3iRII0hy";
       }
       if (weather.match(/thunderstorm/)) {
         id = "3osxYzIQRqN4DOEddC";
       }
       if (weather.match(/light/)) {
-        id = "l0IrIkq7Q3iRII0hy";
+        console.log("I should work as light");
+        id = "xT9GEOg09OuResnZ6g";
       }
-
       if (weather.match(/moderate/)) {
         id = "W0c3xcZ3F1d0EYYb0f";
+      }
+      if (weather.match(/heavy/)) {
+        id = "XgYoTdgj5NiU78prfm";
       } else {
         id = "W0c3xcZ3F1d0EYYb0f";
       }
@@ -210,15 +215,9 @@ async function getWeatherGif(
     if (weather.match(/fog/)) {
       id = "oAbvMXvah1M0U";
     }
-
     if (weather.match(/sleet/)) {
       id = "d3mlmtNPoxNrt4Bi";
     }
-
-    if (weather.match(/drizzle/)) {
-      id = "xT9GEOg09OuResnZ6g";
-    }
-
     if (weather.match(/smoke/)) {
       id = "l2Je9dUI5LpzfHGTe";
     }
@@ -264,6 +263,25 @@ async function getWeatherGif(
     }
     if (weather.match(/dust/)) {
       id = "tqtZDj5BqC0CY";
+    }
+    if (weather.match(/rain/)) {
+      if (
+        weather.match(/\D+(?=\s)/)[0] == "light" ||
+        weather.match(/\D+(?=\s)/)[0] == "drizzle"
+      ) {
+        id = "xT9GEIc1nQ7bVQQ54Q";
+      }
+      if (weather.match(/thunderstorm/)) {
+        id = "3osxYzIQRqN4DOEddC";
+      }
+      if (weather.match(/moderate/)) {
+        id = "5torEEM8QnR95Cqg11";
+      }
+      if (weather.match(/heavy/)) {
+        id = "TVpeXDi8xTlyo";
+      } else {
+        id = "5torEEM8QnR95Cqg11";
+      }
     }
   }
   let apiPromise = await fetch(
