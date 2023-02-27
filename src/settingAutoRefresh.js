@@ -121,16 +121,16 @@ const autoRefreshSetup = {
     if (autoRefreshMode == "Every 24 hours") {
       this.delay = 60000 * 60 * 24;
     }
-    this.timeoutID = setTimeout(() => {
-      let searchbar = document.querySelector(".searchbar > input");
-      searchbar.value = "";
-      handleUserInput.handleSearchIcon();
-    }, this.delay);
-    this.auto = true;
+    if (autoRefreshMode !== "Never") {
+      this.timeoutID = setTimeout(() => {
+        let searchbar = document.querySelector(".searchbar > input");
+        searchbar.value = "";
+        handleUserInput.handleSearchIcon();
+      }, this.delay);
+    }
     if (autoRefreshMode == "Never") {
       clearTimeout(this.timeoutID);
       this.timeoutID = null;
-      this.auto = false;
     }
     autoRefresh();
   },
@@ -140,12 +140,19 @@ function autoRefresh() {
   if (autoRefreshSetup.timeoutID) {
     clearTimeout(autoRefreshSetup.timeoutID);
     autoRefreshSetup.timeoutID = setTimeout(() => {
-      if (autoRefreshSetup.auto) {
-        clean(".result");
-        handleOutOfSettingsClick();
+      if (JSON.parse(localStorage.getItem("refresh")) !== "Never") {
         let searchbar = document.querySelector(".searchbar > input");
         searchbar.value = "";
-        handleUserInput.handleSearchIcon();
+        let city;
+        let info = document.querySelector(".info");
+        if (info) {
+          city = document.querySelector(".city").innerText;
+          clean(".result");
+          handleUserInput.handleSearchIcon(city);
+        } else {
+          clean(".result");
+          handleUserInput.handleSearchIcon();
+        }
         autoRefresh();
       }
     }, autoRefreshSetup.delay);

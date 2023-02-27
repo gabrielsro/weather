@@ -118,39 +118,9 @@ async function getWeatherGif(
     }
   }
 
-  //SUNSETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-  if (timeAtCity < sunsetDate && sunsetDate - timeAtCity < 0.5) {
-    console.log("Sunset");
-    if (weather.match(/mist/)) {
-      id = "3o72F65dJl7Z0PtdjG";
-    }
-    if (weather.match(/clouds/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
-        id = "Yhg9l8kXuq94Q";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "few") {
-        id = "WzLDljBpplUvm";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
-        id = "63WsNg9DAhRkY";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
-        id = "49VB0PHxR5Vsc";
-      }
-      if (weather.match(/fog/)) {
-        id = "xT8qBj3Oxl9kuQKgOk";
-      }
-      if (weather.match(/clear/)) {
-        id = "ZZIEtQHmiTNwuxTOdt";
-      }
-      if (weather.match(/thunderstorm/)) {
-        id = "3o85xzEtQs693ln3qM";
-      }
-    }
-  }
-
   //DAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
   if (timeAtCity > sunriseDate && timeAtCity < sunsetDate) {
+    console.log("day");
     if (weather.match(/rain/)) {
       if (
         weather.match(/\D+(?=\s)/)[0] == "light" ||
@@ -222,6 +192,40 @@ async function getWeatherGif(
     }
     if (weather.match(/thunderstorm/)) {
       id = "3o85xzEtQs693ln3qM";
+    }
+  }
+
+  //SUNSETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+  if (
+    timeAtCity < sunsetDate &&
+    (sunsetDate - timeAtCity) / (60 * 1000 * 60) < 0.5
+  ) {
+    console.log("Sunset");
+    if (weather.match(/mist/)) {
+      id = "3o72F65dJl7Z0PtdjG";
+    }
+    if (weather.match(/clouds/)) {
+      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
+        id = "Yhg9l8kXuq94Q";
+      }
+      if (weather.match(/\D+(?=\s)/)[0] == "few") {
+        id = "WzLDljBpplUvm";
+      }
+      if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
+        id = "63WsNg9DAhRkY";
+      }
+      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
+        id = "49VB0PHxR5Vsc";
+      }
+    }
+    if (weather.match(/clear/)) {
+      id = "ZZIEtQHmiTNwuxTOdt";
+    }
+    if (weather.match(/thunderstorm/)) {
+      id = "3o85xzEtQs693ln3qM";
+    }
+    if (weather.match(/fog/)) {
+      id = "xT8qBj3Oxl9kuQKgOk";
     }
   }
   let apiPromise = await fetch(
