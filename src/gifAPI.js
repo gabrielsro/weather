@@ -116,6 +116,9 @@ async function getWeatherGif(
     if (weather.match(/thunderstorm/)) {
       id = "3o85xzEtQs693ln3qM";
     }
+    if (weather.match(/dust/)) {
+      id = "l4pT0NtPSMV3pw6Lm";
+    }
   }
 
   //DAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
@@ -193,6 +196,9 @@ async function getWeatherGif(
     if (weather.match(/thunderstorm/)) {
       id = "3o85xzEtQs693ln3qM";
     }
+    if (weather.match(/dust/)) {
+      id = "tqtZDj5BqC0CY";
+    }
   }
 
   //SUNSETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
@@ -226,6 +232,9 @@ async function getWeatherGif(
     }
     if (weather.match(/fog/)) {
       id = "xT8qBj3Oxl9kuQKgOk";
+    }
+    if (weather.match(/dust/)) {
+      id = "tqtZDj5BqC0CY";
     }
   }
   let apiPromise = await fetch(
