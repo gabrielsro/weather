@@ -237,7 +237,7 @@ body {
   grid-template-columns: 2.1fr 1fr;
   grid-template-rows: auto 3fr 1fr;
   padding: 1vw;
-  padding-left: 3vw;
+  padding-left: 2vw;
 }
 
 .basics > div:first-child {
