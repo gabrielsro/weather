@@ -8,7 +8,7 @@ export function makeSortSetting() {
   sortIcon.src = SortIcon;
 
   let sortLabel = document.createElement("p");
-  sortLabel.innerText = "Sort Favorites by: ";
+  sortLabel.innerText = "Sort Favorites: ";
 
   let sortSelect = document.createElement("select");
 
