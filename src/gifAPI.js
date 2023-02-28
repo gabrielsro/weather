@@ -11,7 +11,7 @@ const errorGifIds = [
 ];
 
 async function getErrorGif() {
-  let index = Math.floor(Math.random() * 8);
+  let index = Math.floor(Math.random() * 9);
   let id = errorGifIds[index];
   let apiPromise = await fetch(
     `https://api.giphy.com/v1/gifs/${id}?api_key=${gifKey}`,
@@ -31,6 +31,20 @@ async function getWeatherGif(
   tempFeelsRounded,
   moonphase
 ) {
+  let moment;
+  if (timeAtCity - sunsetDate > 0.5 || timeAtCity - sunriseDate < 0) {
+    moment = "night";
+  }
+  if (timeAtCity > sunriseDate && timeAtCity < sunsetDate) {
+    moment = "day";
+    if ((timeAtCity - sunriseDate) / (60 * 1000 * 60) < 6) {
+      moment = "morning";
+    }
+    if ((sunsetDate - timeAtCity) / (60 * 1000 * 60) < 0.5) {
+      moment = "sunset";
+    }
+  }
+
   let temperature;
   if (units == "metric") {
     if (tempFeelsRounded < -10) {
@@ -44,35 +58,118 @@ async function getWeatherGif(
   }
 
   let id = "uymKgqrJ9Or60";
-  //NIGHTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-  if (timeAtCity - sunsetDate > 0.5 || timeAtCity - sunriseDate < 0) {
-    if (weather.match(/rain/)) {
-      if (
-        weather.match(/\D+(?=\s)/)[0] == "light" ||
-        weather.match(/\D+(?=\s)/)[0] == "drizzle"
-      ) {
+
+  if (weather.match(/rain/)) {
+    if (weather.match(/\D+(?=\s)/)[0] == "drizzle") {
+      if (moment == "day") {
+        id = "l0IrIkq7Q3iRII0hy";
+      }
+      if (moment == "morning") {
+      }
+      if (moment == "sunset") {
         id = "xT9GEIc1nQ7bVQQ54Q";
       }
-      if (weather.match(/thunderstorm/)) {
-        id = "3osxYzIQRqN4DOEddC";
+      if (moment == "night") {
+        id = "xT9GEIc1nQ7bVQQ54Q";
       }
-      if (weather.match(/moderate/)) {
-        id = "5torEEM8QnR95Cqg11";
+    }
+    if (weather.match(/\D+(?=\s)/)[0] == "light") {
+      if (moment == "day") {
+        id = "xT9GEOg09OuResnZ6g";
       }
-      if (weather.match(/heavy/)) {
-        id = "l0MYAfxbg3fhqn1Ru";
-      } else {
+      if (moment == "morning") {
+        id = "xTcnT8PuKl5GBz26mk";
+      }
+      if (moment == "sunset") {
+        id = "xT9GEIc1nQ7bVQQ54Q";
+      }
+      if (moment == "night") {
+        id = "xT9GEIc1nQ7bVQQ54Q";
+      }
+    }
+    if (weather.match(/\D+(?=\s)/)[0] == "moderate") {
+      if (moment == "day") {
+        id = "W0c3xcZ3F1d0EYYb0f";
+      }
+      if (moment == "morning") {
+        id = "hk6czgfmwVJS0";
+      }
+      if (moment == "sunset") {
+        id = "1wrRQHybZqAB4jZqZw";
+      }
+      if (moment == "night") {
         id = "5torEEM8QnR95Cqg11";
       }
     }
-    if (weather.match(/clouds/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
+    if (weather.match(/\D+(?=\s)/)[0] == "heavy") {
+      if (moment == "day") {
+        id = "XgYoTdgj5NiU78prfm";
+      }
+      if (moment == "morning") {
+        id = "XgYoTdgj5NiU78prfm";
+      }
+      if (moment == "sunset") {
+        id = "TVpeXDi8xTlyo";
+      }
+      if (moment == "night") {
+        id = "l0MYAfxbg3fhqn1Ru";
+      }
+    }
+    if (weather.match(/\D+(?=\s)/)[0] == "thunderstorm") {
+      if (moment == "day") {
+        id = "3osxYzIQRqN4DOEddC";
+      }
+      if (moment == "morning") {
+        id = "Y4JPYsrJEk454pNbts";
+      }
+      if (moment == "sunset") {
+        id = "l0MYOJCCE8yTfcwSY";
+      }
+      if (moment == "night") {
+        id = "ZqUNSyKYC9yN3O4jHA";
+      }
+    }
+  }
+  if (weather.match(/clouds/)) {
+    if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
+      if (moment == "day") {
+        id = "dWIau1ZRyIj3j6YEaL";
+      }
+      if (moment == "morning") {
+        id = "d5PPYjcb3caPTHM3hv";
+      }
+      if (moment == "sunset") {
+        id = "Yhg9l8kXuq94Q";
+      }
+      if (moment == "night") {
         id = "2fC74jNn5SPvO";
       }
-      if (
-        weather.match(/\D+(?=\s)/)[0] == "few" ||
-        weather.match(/\D+(?=\s)/)[0] == "scattered"
-      ) {
+    }
+    if (weather.match(/\D+(?=\s)/)[0] == "broken") {
+      if (moment == "day") {
+        id = "63WsNg9DAhRkY";
+      }
+      if (moment == "morning") {
+        id = "63WsNg9DAhRkY";
+      }
+      if (moment == "sunset") {
+        id = "49VB0PHxR5Vsc";
+      }
+      if (moment == "night") {
+        id = "13QslXgKOQzmhy";
+      }
+    }
+    if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
+      if (moment == "day") {
+        id = "uOuiK4F5zZkZ2";
+      }
+      if (moment == "morning") {
+        id = "0Styincf6K2tvfjb5Q";
+      }
+      if (moment == "sunset") {
+        id = "63WsNg9DAhRkY";
+      }
+      if (moment == "night") {
         if (moonphase == 0.5) {
           id = "nV5l2SFsU93ckaWlyn";
         } else {
@@ -84,34 +181,190 @@ async function getWeatherGif(
           }
         }
       }
-      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
-        id = "13QslXgKOQzmhy";
-      }
     }
-    if (weather.match(/snow/)) {
-      if (temperature == "freezing") {
-        id = "s4Bi420mMDRBK";
-      } else {
-        if (weather.match(/\D+(?=\s)/)) {
-          if (weather.match(/\D+(?=\s)/)[0] == "light") {
-            if (weather.match(/shower/)) {
-              id = "ONLoRRAHQh5kY";
-            } else {
-              id = "3ohc11DpNMf7qnqxR6";
-            }
-          }
+    if (weather.match(/\D+(?=\s)/)[0] == "few") {
+      if (moment == "day") {
+        id = "gZEBpuOkPuydi";
+      }
+      if (moment == "morning") {
+        id = "mno6BJfy8USic";
+      }
+      if (moment == "sunset") {
+        id = "WzLDljBpplUvm";
+      }
+      if (moment == "night") {
+        if (moonphase == 0.5) {
+          id = "nV5l2SFsU93ckaWlyn";
         } else {
-          id = "bGaOdqeqYQKc0";
+          if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
+            id = "wwjEPjqcuPwvS";
+          }
+          if (weather.match(/\D+(?=\s)/)[0] == "few") {
+            id = "wwjEPjqcuPwvS";
+          }
         }
       }
     }
-    if (weather.match(/haze/)) {
+  }
+  if (weather.match(/snow/)) {
+    if (temperature == "freezing") {
+      id = "s4Bi420mMDRBK";
+    } else {
+      if (moment == "day") {
+        if (weather.match(/shower/)) {
+          id = "ONLoRRAHQh5kY";
+        }
+        if (weather.match(/light/)) {
+          id = "7Bgpw7PwdxoDC";
+        } else {
+          id = "5qFE91OmehdRq0sL5a";
+        }
+      }
+      if (moment == "morning") {
+        if (weather.match(/shower/)) {
+          id = "ONLoRRAHQh5kY";
+        }
+        if (weather.match(/light/)) {
+          id = "OWxrxRHY6afRu";
+        } else {
+          id = "5qFE91OmehdRq0sL5a";
+        }
+      }
+      if (moment == "sunset") {
+        if (weather.match(/shower/)) {
+          id = "ONLoRRAHQh5kY";
+        }
+        if (weather.match(/light/)) {
+          id = "Xi2Xu0MejhsUo";
+        } else {
+          id = "5qFE91OmehdRq0sL5a";
+        }
+      }
+      if (moment == "night") {
+        if (weather.match(/shower/)) {
+          id = "ONLoRRAHQh5kY";
+        }
+        if (weather.match(/light/)) {
+          id = "bGaOdqeqYQKc0";
+        } else {
+          id = "3TKTrn299mI6RsYuaU";
+        }
+      }
+    }
+  }
+  if (weather.match(/haze/)) {
+    if (moment == "day") {
+      id = "r2OMuTCFo0rv2rgAL5";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+    }
+    if (moment == "night") {
       id = "3sJQdC0fXJLyWOs4WM";
     }
-    if (weather.match(/mist/)) {
+  }
+  if (weather.match(/mist/)) {
+    if (moment == "day") {
+      id = "oVaigqUhPvDglQ0uWJ";
+    }
+    if (moment == "morning") {
+      id = "oVaigqUhPvDglQ0uWJ";
+    }
+    if (moment == "sunset") {
       id = "3o72F65dJl7Z0PtdjG";
     }
-    if (weather.match(/clear/)) {
+    if (moment == "night") {
+      id = "3o72F65dJl7Z0PtdjG";
+    }
+  }
+  if (weather.match(/fog/)) {
+    if (moment == "day") {
+      id = "oAbvMXvah1M0U";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+      id = "xT8qBj3Oxl9kuQKgOk";
+    }
+    if (moment == "night") {
+      id = "dz6Nrk35xWP3q";
+    }
+  }
+  if (weather.match(/sleet/)) {
+    if (moment == "day") {
+      id = "d3mlmtNPoxNrt4Bi";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+    }
+    if (moment == "night") {
+      id = "d3mlmtNPoxNrt4Bi";
+    }
+  }
+  if (weather.match(/drizzle/)) {
+    if (moment == "day") {
+      id = "xT9GEOg09OuResnZ6g";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+      id = "xT9GEIc1nQ7bVQQ54Q";
+    }
+    if (moment == "night") {
+      id = "xT9GEOg09OuResnZ6g";
+    }
+  }
+  if (weather.match(/smoke/)) {
+    if (moment == "day") {
+      id = "l2Je9dUI5LpzfHGTe";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+    }
+    if (moment == "night") {
+      id = "l2Je9dUI5LpzfHGTe";
+    }
+  }
+  if (weather.match(/dust/)) {
+    if (moment == "day") {
+      id = "tqtZDj5BqC0CY";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+      id = "tqtZDj5BqC0CY";
+    }
+    if (moment == "night") {
+      id = "l4pT0NtPSMV3pw6Lm";
+    }
+  }
+  if (weather.match(/thunderstorm/)) {
+    if (moment == "day") {
+      id = "3osxYzIQRqN4DOEddC";
+    }
+    if (moment == "morning") {
+    }
+    if (moment == "sunset") {
+      id = "Y4JPYsrJEk454pNbts";
+    }
+    if (moment == "night") {
+      id = "3o85xzEtQs693ln3qM";
+    }
+  }
+  if (weather.match(/clear/)) {
+    if (moment == "day") {
+      id = "VxbvpfaTTo3le";
+    }
+    if (moment == "morning") {
+      id = "RqSJ6nQVsOpxe";
+    }
+    if (moment == "sunset") {
+      id = "ZZIEtQHmiTNwuxTOdt";
+    }
+    if (moment == "night") {
       if (moonphase == 0.5) {
         id = "aN9GqoR7OD3nq";
       }
@@ -122,165 +375,6 @@ async function getWeatherGif(
         id = "9ukPOCS9EOEta";
       } else {
         id = "m5oQabBdoOye4";
-      }
-    }
-    if (weather.match(/fog/)) {
-      id = "dz6Nrk35xWP3q";
-    }
-
-    if (weather.match(/sleet/)) {
-      id = "d3mlmtNPoxNrt4Bi";
-    }
-
-    if (weather.match(/drizzle/)) {
-      id = "xT9GEOg09OuResnZ6g";
-    }
-
-    if (weather.match(/smoke/)) {
-      id = "l2Je9dUI5LpzfHGTe";
-    }
-    if (weather.match(/thunderstorm/)) {
-      id = "VJAuhRegmbXSAaffFR";
-    }
-    if (weather.match(/dust/)) {
-      id = "l4pT0NtPSMV3pw6Lm";
-    }
-  }
-
-  //DAYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-  if (timeAtCity > sunriseDate && timeAtCity < sunsetDate) {
-    if (weather.match(/drizzle/)) {
-      id = "xT9GEOg09OuResnZ6g";
-    }
-    if (weather.match(/rain/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "drizzle") {
-        id = "l0IrIkq7Q3iRII0hy";
-      }
-      if (weather.match(/thunderstorm/)) {
-        id = "3osxYzIQRqN4DOEddC";
-      }
-      if (weather.match(/light/)) {
-        console.log("I should work as light");
-        id = "xT9GEOg09OuResnZ6g";
-      }
-      if (weather.match(/moderate/)) {
-        id = "W0c3xcZ3F1d0EYYb0f";
-      }
-      if (weather.match(/heavy/)) {
-        id = "XgYoTdgj5NiU78prfm";
-      } else {
-        id = "W0c3xcZ3F1d0EYYb0f";
-      }
-    }
-    if (weather.match(/clouds/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
-        id = "dWIau1ZRyIj3j6YEaL";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "few") {
-        id = "mno6BJfy8USic";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
-        id = "uOuiK4F5zZkZ2";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
-        id = "63WsNg9DAhRkY";
-      }
-    }
-    if (weather.match(/snow/)) {
-      if (temperature == "freezing") {
-        id = "s4Bi420mMDRBK";
-      } else {
-        if (weather.match(/\D+(?=\s)/)) {
-          if (weather.match(/\D+(?=\s)/)[0] == "light") {
-            if (weather.match(/shower/)) {
-              id = "26xBwFcBGPLNfGbkY";
-            } else {
-              id = "5qFE91OmehdRq0sL5a";
-            }
-          }
-        } else {
-          id = "3oriNScTbEzEVoR1Is";
-        }
-      }
-    }
-    if (weather.match(/haze/)) {
-      id = "r2OMuTCFo0rv2rgAL5";
-    }
-    if (weather.match(/mist/)) {
-      id = "oVaigqUhPvDglQ0uWJ";
-    }
-    if (weather.match(/clear/)) {
-      id = "RqSJ6nQVsOpxe";
-    }
-    if (weather.match(/fog/)) {
-      id = "oAbvMXvah1M0U";
-    }
-    if (weather.match(/sleet/)) {
-      id = "d3mlmtNPoxNrt4Bi";
-    }
-    if (weather.match(/smoke/)) {
-      id = "l2Je9dUI5LpzfHGTe";
-    }
-    if (weather.match(/thunderstorm/)) {
-      id = "3osxYzIQRqN4DOEddC";
-    }
-    if (weather.match(/dust/)) {
-      id = "tqtZDj5BqC0CY";
-    }
-  }
-
-  //SUNSETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-  if (
-    timeAtCity < sunsetDate &&
-    (sunsetDate - timeAtCity) / (60 * 1000 * 60) < 0.5
-  ) {
-    console.log("Sunset");
-    if (weather.match(/mist/)) {
-      id = "3o72F65dJl7Z0PtdjG";
-    }
-    if (weather.match(/clouds/)) {
-      if (weather.match(/\D+(?=\s)/)[0] == "overcast") {
-        id = "Yhg9l8kXuq94Q";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "few") {
-        id = "WzLDljBpplUvm";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "scattered") {
-        id = "63WsNg9DAhRkY";
-      }
-      if (weather.match(/\D+(?=\s)/)[0] == "broken") {
-        id = "49VB0PHxR5Vsc";
-      }
-    }
-    if (weather.match(/clear/)) {
-      id = "ZZIEtQHmiTNwuxTOdt";
-    }
-    if (weather.match(/thunderstorm/)) {
-      id = "Y4JPYsrJEk454pNbts";
-    }
-    if (weather.match(/fog/)) {
-      id = "xT8qBj3Oxl9kuQKgOk";
-    }
-    if (weather.match(/dust/)) {
-      id = "tqtZDj5BqC0CY";
-    }
-    if (weather.match(/rain/)) {
-      if (
-        weather.match(/\D+(?=\s)/)[0] == "light" ||
-        weather.match(/\D+(?=\s)/)[0] == "drizzle"
-      ) {
-        id = "xT9GEIc1nQ7bVQQ54Q";
-      }
-      if (weather.match(/thunderstorm/)) {
-        id = "3osxYzIQRqN4DOEddC";
-      }
-      if (weather.match(/moderate/)) {
-        id = "5torEEM8QnR95Cqg11";
-      }
-      if (weather.match(/heavy/)) {
-        id = "TVpeXDi8xTlyo";
-      } else {
-        id = "5torEEM8QnR95Cqg11";
       }
     }
   }

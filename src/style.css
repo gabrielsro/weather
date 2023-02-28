@@ -311,6 +311,8 @@ body {
 }
 
 .weather-gif {
+  max-height: 50vh;
+  min-height: 30vh;
   height: auto;
   max-width: 100%;
 }
@@ -442,4 +444,6 @@ body {
 
 .error-card img {
   border-radius: 5px;
+  width: 100%;
+  max-height: 60vh;
 }

@@ -21,7 +21,9 @@ const favoritesBar = {
   },
   refreshFavoritesBar() {
     let favoritesBar = document.querySelector(".favorites-bar");
-    this.header.removeChild(favoritesBar);
+    if (favoritesBar) {
+      this.header.removeChild(favoritesBar);
+    }
     let cities = JSON.parse(localStorage.getItem("cities"));
     if (cities.length > 0) {
       this.makeFavoritesBar();
