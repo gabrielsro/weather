@@ -1,5 +1,6 @@
 import favoriteIcon from "./fav.svg";
 import favoritesBar from "./favoritesBar";
+import { makeFavList } from "./makeFavList";
 import { getOptionsUnfavorite } from "./options";
 import { sortAtoZ } from "./settingSort";
 import { sortZtoA } from "./settingSort";
@@ -31,20 +32,28 @@ export function handleSortAction(city) {
   let cities = JSON.parse(localStorage.getItem("cities"));
   if (city) {
     cities.push(city.innerText);
+    localStorage.setItem("cities", JSON.stringify(cities));
   }
   if (cities.length > 0) {
     let citiesSorted;
     if (JSON.parse(localStorage.getItem("sort")) == "atoz") {
       citiesSorted = sortAtoZ(cities);
+      let citiesStrigified = JSON.stringify(citiesSorted);
+      localStorage.setItem("cities", `${citiesStrigified}`);
     }
     if (JSON.parse(localStorage.getItem("sort")) == "ztoa") {
       citiesSorted = sortZtoA(cities);
+      let citiesStrigified = JSON.stringify(citiesSorted);
+      localStorage.setItem("cities", `${citiesStrigified}`);
+    } else {
+      makeFavList();
     }
-    let citiesStrigified = JSON.stringify(citiesSorted);
-    localStorage.setItem("cities", `${citiesStrigified}`);
+
     let info = document.querySelector(".info");
     if (info) {
       favoritesBar.refreshFavoritesBar();
+    } else {
+      makeFavList();
     }
   }
 }

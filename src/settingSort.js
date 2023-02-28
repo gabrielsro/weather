@@ -1,5 +1,6 @@
 import SortIcon from "./sort.svg";
 import { handleSortAction } from "./optionFavorite";
+import { makeFavList } from "./makeFavList";
 
 export function makeSortSetting() {
   let sortSetting = document.createElement("div");

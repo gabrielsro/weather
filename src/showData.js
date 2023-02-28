@@ -36,7 +36,13 @@ function showOnCard(
     true
   );
 
-  return basicsCard;
+  return {
+    cityName: city,
+    card: basicsCard,
+    tempActual: temp,
+    feels: tempFeels,
+    unit: tempUnit,
+  };
 }
 
 function showOnInfo(

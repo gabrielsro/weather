@@ -14,7 +14,6 @@ if (localStorage.length > 0) {
     }
     let refreshMode = localStorage.getItem("refresh");
     if (refreshMode == "Never") {
-      console.log("I wont refresh");
       autoRefreshSetup.auto = false;
     } else {
       autoRefreshSetup.handleAutoRefresh(localStorage.getItem("refresh"));
