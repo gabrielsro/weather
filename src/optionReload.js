@@ -20,6 +20,9 @@ export function makeReloadOption() {
       clean(".result");
       handleUserInput.handleSearchIcon(cityName);
     } else {
+      let searchbar = document.querySelector(".searchbar > input");
+      searchbar.value = "";
+      console.log(searchbar);
       clean(".result");
       handleUserInput.handleSearchIcon();
     }
