@@ -57,7 +57,7 @@ async function getWeatherGif(
     }
   }
 
-  let id = "uymKgqrJ9Or60";
+  let id = "za5xikuRr0OzK";
 
   if (weather.match(/rain/)) {
     if (weather.match(/\D+(?=\s)/)[0] == "drizzle") {
@@ -120,7 +120,7 @@ async function getWeatherGif(
         id = "3osxYzIQRqN4DOEddC";
       }
       if (moment == "morning") {
-        id = "Y4JPYsrJEk454pNbts";
+        id = "l4FGkdtLGfpUiBdFC";
       }
       if (moment == "sunset") {
         id = "l0MYOJCCE8yTfcwSY";
@@ -257,8 +257,10 @@ async function getWeatherGif(
       id = "r2OMuTCFo0rv2rgAL5";
     }
     if (moment == "morning") {
+      id = "dgeIH5RPynA6Q";
     }
     if (moment == "sunset") {
+      id = "xTiTnh7HeYa7bBli6Y";
     }
     if (moment == "night") {
       id = "3sJQdC0fXJLyWOs4WM";
@@ -283,6 +285,7 @@ async function getWeatherGif(
       id = "oAbvMXvah1M0U";
     }
     if (moment == "morning") {
+      id = "3o7rbT3ECCXdEGE8fu";
     }
     if (moment == "sunset") {
       id = "xT8qBj3Oxl9kuQKgOk";
@@ -296,8 +299,10 @@ async function getWeatherGif(
       id = "d3mlmtNPoxNrt4Bi";
     }
     if (moment == "morning") {
+      id = "JTghlLg0d1BpZvbQlG";
     }
     if (moment == "sunset") {
+      id = "JTghlLg0d1BpZvbQlG";
     }
     if (moment == "night") {
       id = "d3mlmtNPoxNrt4Bi";
@@ -308,6 +313,7 @@ async function getWeatherGif(
       id = "xT9GEOg09OuResnZ6g";
     }
     if (moment == "morning") {
+      id = "l0IrIkq7Q3iRII0hy";
     }
     if (moment == "sunset") {
       id = "xT9GEIc1nQ7bVQQ54Q";
@@ -321,8 +327,10 @@ async function getWeatherGif(
       id = "l2Je9dUI5LpzfHGTe";
     }
     if (moment == "morning") {
+      id = "ZWRCWdUymIGNW";
     }
     if (moment == "sunset") {
+      id = "l4pTrnc4kl2uupJF6";
     }
     if (moment == "night") {
       id = "l2Je9dUI5LpzfHGTe";
@@ -333,6 +341,7 @@ async function getWeatherGif(
       id = "tqtZDj5BqC0CY";
     }
     if (moment == "morning") {
+      id = "AUc4qeZxG28lq";
     }
     if (moment == "sunset") {
       id = "tqtZDj5BqC0CY";
@@ -341,11 +350,12 @@ async function getWeatherGif(
       id = "l4pT0NtPSMV3pw6Lm";
     }
   }
-  if (weather.match(/thunderstorm/)) {
+  if (weather.match(/thunderstorm/) && !weather.match(/rain/)) {
     if (moment == "day") {
       id = "3osxYzIQRqN4DOEddC";
     }
     if (moment == "morning") {
+      id = "3oEjHGZkrolm9UgvM4";
     }
     if (moment == "sunset") {
       id = "Y4JPYsrJEk454pNbts";

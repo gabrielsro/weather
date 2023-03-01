@@ -12,7 +12,7 @@ const result = document.querySelector(".result");
 
 const handleUserInput = {
   weatherKey: "8ae2d13e54ebef775efff2c52817a5e2",
-  sunAndMoonKey: "EYEAZJX93QXNQVPUM8AYE38NX",
+  sunAndMoonKey: "VAM5K6CTBVE7TRJ4YC365QDF8",
   gifKey: "ZSqLZBoP1L25pS03G478pjRBb0NESb0C",
   units: JSON.parse(localStorage.getItem("metric")),
   handleSearchIcon(cityFromCard) {
@@ -169,14 +169,10 @@ export async function getWeather(location, units) {
     let cloudiness = apiPromiseResolved.clouds["all"];
     let wind = apiPromiseResolved.wind["speed"];
 
-    let sunAndMoonApiPromise = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${
-        Date.parse(dateAtCity) / 1000
-      }/?key=${handleUserInput.sunAndMoonKey}&elements=uvindex,moonphase`,
-      { mode: "cors" }
+    let sunAndMoonApiPromiseResolved = await getFromSunAndMoonAPI(
+      location,
+      dateAtCity
     );
-
-    let sunAndMoonApiPromiseResolved = await sunAndMoonApiPromise.json();
     let moonphase;
     let uvindex;
     if (sunAndMoonApiPromiseResolved.currentConditions) {
@@ -240,6 +236,23 @@ export async function getWeather(location, units) {
       uvindex,
       day
     );
+  }
+}
+
+async function getFromSunAndMoonAPI(location, dateAtCity) {
+  let sunAndMoonApiPromiseResolved;
+
+  try {
+    let sunAndMoonApiPromise = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${
+        Date.parse(dateAtCity) / 1000
+      }/?key=${handleUserInput.sunAndMoonKey}&elements=uvindex,moonphase`,
+      { mode: "cors" }
+    );
+    sunAndMoonApiPromiseResolved = await sunAndMoonApiPromise.json();
+    return sunAndMoonApiPromiseResolved;
+  } catch (error) {
+    console.log("there was an error on the sunAndMoonAPI: ", error);
   }
 }
 
