@@ -108,15 +108,13 @@ export async function makeFavList() {
     if (info) {
       favoritesBar.refreshFavoritesBar();
     } else {
-      getOptionsFavList();
+      let settingsBar = document.querySelector(".settings-bar");
+      if (!settingsBar) {
+        getOptionsFavList();
+      }
       let favBar = document.querySelector(".favorites-bar");
       favBar.setAttribute("id", "hidden");
       clean(result);
-      let settingsBar = document.querySelector(".settings-bar");
-      if (settingsBar) {
-        let header = document.querySelector("header");
-        header.removeChild(settingsBar);
-      }
       favListSorted.forEach((f) => result.appendChild(f));
     }
   });

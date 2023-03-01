@@ -31,7 +31,10 @@ function handleSettingOptionClick(click) {
   if (favBar) {
     header.insertBefore(settingsBar, favBar);
   } else {
-    header.appendChild(settingsBar);
+    let showingSettingsBar = document.querySelector(".settingd-bar");
+    if (showingSettingsBar) {
+      header.appendChild(settingsBar);
+    }
   }
   let body = document.querySelector("body");
   body.addEventListener("click", handleOutOfSettingsClick, {
