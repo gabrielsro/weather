@@ -136,7 +136,7 @@ async function getWeatherGif(
         id = "dWIau1ZRyIj3j6YEaL";
       }
       if (moment == "morning") {
-        id = "d5PPYjcb3caPTHM3hv";
+        id = "dWIau1ZRyIj3j6YEaL";
       }
       if (moment == "sunset") {
         id = "Yhg9l8kXuq94Q";
