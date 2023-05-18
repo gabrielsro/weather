@@ -46,7 +46,7 @@ export function makeBasicsCard(
     "Cross-Origin-Resource-Policy: cross-origin "
   );
   flag.alt = `${country} flag`;
-  flag.src = getFlag(country);
+  flag.src = getFlag(country.toLowerCase());
   flag.classList.add("flag");
 
   let basicsDateAndTime = document.createElement("div");
